@@ -1,0 +1,4 @@
+export const GET_NODE_LIST = "GET_NODE_LIST"
+export const GET_NODE_LIST_SUCCESS = "GET_NODE_LIST_SUCCESS"
+
+

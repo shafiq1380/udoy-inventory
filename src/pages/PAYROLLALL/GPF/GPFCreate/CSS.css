@@ -1,0 +1,23 @@
+.transaction-scrollbar {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  overflow-x: auto; /* Add this to enable horizontal scrolling */
+}
+
+.transaction-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Reduced width for vertical scrollbar */
+  height: 6px; /* Reduced height for horizontal scrollbar */
+}
+
+.transaction-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #61b364;
+  border-radius: 5px;
+}
+
+.transaction-scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.transaction-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #45a049;
+}

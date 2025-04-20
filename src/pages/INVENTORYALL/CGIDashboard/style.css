@@ -1,0 +1,91 @@
+.activecard {
+    background: linear-gradient(135deg, #14c064, #45785c);
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.inactive {
+    background: linear-gradient(135deg, #696969, #3d3d3d);
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.main-card {
+    transition: all 0.2s ease-in-out;
+}
+
+
+.main-card:hover {
+    scale: 1.02;
+    transform: translateY(-5px);
+    transition: all 0.2s ease-in-out;
+}
+
+.card-content {
+    color: white;
+}
+
+.balance-title {
+    font-size: .6rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.balance-amount {
+    font-size: .8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.main-balance {
+    display: inline-block;
+}
+
+/* .card-details .chip .circle {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 4px;
+} */
+
+.card-details .card-number {
+    font-size: .5rem;
+    font-weight: 600;
+}
+
+.iconHover:hover {
+    scale: 1.1;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    color: black !important;
+}
+
+
+.card-footer span {
+    font-size: 0.5rem;
+    text-transform: uppercase;
+}
+
+.card-footer p {
+    margin: 0;
+    font-size: 0.5rem;
+    font-weight: 600;
+}
+
+.link-text {
+    transition: all 0.1s ease-in-out;
+    font-size: .6rem;
+
+}
+
+
+.link-text:hover {
+    color: black;
+    transform: translateX(-10px);
+    transition: all 0.1s ease-in-out;
+    font-weight: 600;
+    text-decoration: underline;
+}

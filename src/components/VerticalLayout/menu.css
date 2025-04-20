@@ -1,0 +1,8 @@
+.side-item:hover {
+    color: green;
+}
+
+.side-item {
+    color: white;
+    display: inline-block;
+}

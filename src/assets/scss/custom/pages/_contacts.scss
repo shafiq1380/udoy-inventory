@@ -1,0 +1,22 @@
+// 
+// Contacts.scss
+//
+
+.contact-links {
+  a {
+    color: var(--#{$prefix}body-color);
+  }
+}
+
+// profile
+
+.profile-user-wid {
+  margin-top: -26px;
+
+}
+
+.profile-user-wid2 {
+  margin-top: -35px;
+  position: relative;
+  margin-left: 330px;
+}

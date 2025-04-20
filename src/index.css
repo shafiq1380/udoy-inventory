@@ -1,0 +1,49 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+
+
+
+
+.checkboxboder {
+  border: 1.5px solid gray;
+}
+
+
+
+@font-face {
+  font-family: banglaBijoy;
+  src: url('../src/assets/fonts/boxicons.ttf');
+}
+
+@font-face {
+  font-family: banglaBijoy52;
+  src: url('../src/assets/customBanglaFont/ShorifJonotaBIJOY52.ttf');
+}
+
+@font-face {
+  font-family: banglaUnicode;
+  src: url('../src/assets/customBanglaFont/ShorifJonotaUnicode.ttf');
+}
+
+.banglaBijoy {
+  font-family: "banglaUnicode" !important
+}

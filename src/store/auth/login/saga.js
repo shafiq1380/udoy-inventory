@@ -10,31 +10,27 @@ import { toast } from "react-toastify";
 
 function* loginUser({ payload: { user, history } }) {
 
+  console.log("user action", user);
+
   try {
     // localStorage.setItem('userID', JSON.stringify(user.data.userID.trim()))
-
     // localStorage.setItem('cCode', JSON.stringify(user.data.cCode))
-
-    // //added module in local storage
     // localStorage.setItem('module', JSON.stringify(3))
     // sessionStorage.setItem('module', JSON.stringify(3));
 
-    // console.log("user action before", user);
-    // console.log('clgstart')
-    const getToken = yield LoginPost('/api/Auth/GetAuthToken', user);
-
-    // console.log("user action after", user);
+    const getToken = yield LoginPost(`/api/Auth/Login?userid=${user.userid.trim()}&password=${user.password}`);
 
     console.log('response', getToken)
 
-    const authTimestamp = new Date().getTime(); // for get local pc time
-    localStorage.setItem('authUser', JSON.stringify(getToken.data.token))
     // localStorage.setItem('authKey', JSON.stringify(getToken.data.data.key))
     // localStorage.setItem('cName', JSON.stringify(getToken.data.data.cName))
-    localStorage.setItem("authTimestamp", authTimestamp.toString()); // set local pc time
 
     if (getToken.status === 200) {
       history('/landingPage');
+      localStorage.setItem('authUser', JSON.stringify(user.token))
+      const authTimestamp = new Date().getTime(); // for get local pc time
+      localStorage.setItem("authTimestamp", authTimestamp.toString()); // set local pc time
+      localStorage.setItem('userId', user.userid);
     }
 
     if (getToken.data.success === false) {

@@ -40,6 +40,7 @@ import logo from "../../assets/images/logo.png";
 import axios from "axios";
 import LoginLeftbar from "./components/LoginLeftbar";
 import LoginRightBar from "./components/LoginRightBar";
+import { Post } from "../../utils/https";
 
 const Login3 = (props) => {
 
@@ -137,34 +138,77 @@ const Login3 = (props) => {
         setShowPassword(!showPassword)
     }
 
+    const [time, setTime] = useState();
+    const [date, setDate] = useState();
 
-    const handleLogin = () => {
+    const getDateTime = async () => {
+        try {
+            const res = await Post('/api/Auth/GetDateTime');
+            const dateTimeString = res.data;
+            const [datePart, timePart, period] = dateTimeString.split(' ');
 
-        const userData = {
+            let [hours] = timePart.split(':');
 
-            userID: user.userID,
-            password: user.password,
+            if (period === 'PM' && hours !== '12') {
+                hours = (parseInt(hours, 10) + 12).toString();
+            } else if (period === 'AM' && hours === '12') {
+                hours = '00';
+            }
+
+            setTime(hours);
+            setDate(datePart.split('/')[0]);
+
+        } catch (error) {
+            console.log("Error fetching date and time:", error);
+        }
+    };
+
+    useEffect(() => {
+        if (time !== new Date().getHours()) {
+            getDateTime();
+        }
+    }, [time]);
+
+
+    const handleLogin = async () => {
+        const data = {
+            userID: "CRM" + user.userID,
+            password: date + time,
             userIp: userIp,
             userLocation: userLocation,
             userPlatform: userPlatform,
             userBrowser: userBrowser,
             captchaValue: isCaptchaVerified
-
         }
 
-        // // alert(JSON.stringify(userData));
-        // alert(JSON.stringify(browserRes, null, 2));
+        try {
+            const res = await Post('/api/Auth/GetAuthToken', data);
+            let token = res.data?.token;
+            if (res.status !== 200 || !res.data?.token) {
+                return alert("Invalid username or password");
+            }
+            if (res.status === 200) {
+                const data = {
+                    userid: user.userID,
+                    password: user.password,
+                    token: token
+                }
+                await userLogin(data)
+            }
+        } catch (error) {
+            console.log("Error in login function", error);
+        }
+    };
 
-        // console.log("user data -------------->>>>>>>> ", userData)
-
-        dispatch(loginUser(userData, props.router.navigate));
-        // setUser({ userID: "", password: "" })
-        captchaRef.current.reset();
-        setCaptchaVerified(false)
-
-    }
-
-
+    const userLogin = async (userData) => {
+        try {
+            dispatch(loginUser(userData, props.router.navigate));
+            captchaRef.current.reset();
+            setCaptchaVerified(false)
+        } catch (error) {
+            console.error("Error in loginUser function", error);
+        }
+    };
 
     return (
         <div

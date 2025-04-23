@@ -20,7 +20,7 @@ function* loginUser({ payload: { user, history } }) {
 
     const getToken = yield LoginPost(`/api/Auth/Login?userid=${user.userid.trim()}&password=${user.password}`);
 
-    console.log('response', getToken)
+    // console.log('response', getToken)
 
     // localStorage.setItem('authKey', JSON.stringify(getToken.data.data.key))
     // localStorage.setItem('cName', JSON.stringify(getToken.data.data.cName))

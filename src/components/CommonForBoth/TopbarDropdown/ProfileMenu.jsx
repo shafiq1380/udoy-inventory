@@ -109,7 +109,7 @@ const ProfileMenu = (props) => {
 
 
           {/* <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger" /> */}
-          <DropdownItem tag="a" className={`py-2 ${module === 1 ? 'text-primary fw-bold' : ''}`} onClick={() => handleOnclick(1)}>
+          {/* <DropdownItem tag="a" className={`py-2 ${module === 1 ? 'text-primary fw-bold' : ''}`} onClick={() => handleOnclick(1)}>
             {" "}
             <MdOutlineAccountBalance size={20} color={`${module === 1 ? 'blue' : 'gray'}`} className="me-2" />
             {props.t("Account Module")}{" "}
@@ -125,14 +125,14 @@ const ProfileMenu = (props) => {
             {" "}
             <MdInventory2 size={20} color={`${module === 3 ? 'blue' : 'gray'}`} className="me-2" />
             {props.t("Inventory Management")}{" "}
-          </DropdownItem>
+          </DropdownItem> */}
 
 
           {/* diviver and logout */}
 
-          <div className="dropdown-divider" />
+          {/* <div className="dropdown-divider" /> */}
 
-          <Link to="/profile">
+          {/* <Link to="/profile">
             <DropdownItem tag="a" className="py-2">
               {" "}
               <i className="bx bx-user font-size-16 align-middle me-1" />
@@ -150,7 +150,7 @@ const ProfileMenu = (props) => {
               />
               {props.t(" User Manual")}{" "}
             </DropdownItem>
-          </Link>
+          </Link> */}
 
 
 

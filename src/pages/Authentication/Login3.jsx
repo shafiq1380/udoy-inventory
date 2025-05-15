@@ -178,8 +178,11 @@ const Login3 = (props) => {
             userLocation: userLocation,
             userPlatform: userPlatform,
             userBrowser: userBrowser,
-            captchaValue: isCaptchaVerified
+            // captchaValue: isCaptchaVerified
+            captchaValue: false
         }
+
+        // console.log("Login data", data);
 
         try {
             const res = await Post('/api/Auth/GetAuthToken', data);
@@ -250,7 +253,7 @@ const Login3 = (props) => {
                             handleCaptchaVerify={handleCaptchaVerify}
                             showPassword={showPassword}
                             handleShowPassword={handleShowPassword}
-                            isCaptchaVerified={isCaptchaVerified}
+                            // isCaptchaVerified={isCaptchaVerified}
                             loginStatus={loginStatus}
                         />
                     </Col>

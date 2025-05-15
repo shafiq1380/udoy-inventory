@@ -95,13 +95,13 @@ const LoginRightBar = (
                         </div>
                     </div>
 
-                    <div className="mt-4">
+                    {/* <div className="mt-4">
                         <ReCAPTCHA
                             ref={captchaRef}
                             sitekey="6LeJ3pAnAAAAAH-Wfk2OklT1llAYKiv1sRW4hEyp"
                             onChange={handleCaptchaVerify}
                         />
-                    </div>
+                    </div> */}
 
                     <div className="mt-3 d-grid">
                         <button

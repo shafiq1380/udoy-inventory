@@ -83,7 +83,7 @@ const SavedIssueMaintance = ({ activeTab }) => {
                 trnCode2: "MIS"
             }
         }
-        await Post('/api/InvTransaction/GetAllSavedTransaction', data)
+        await Post('/api/V1/InvTransaction/GetAllSavedTransaction', data)
             .then(res =>
                 // console.log(res.data)
                 setTransactionData(res.data.data)

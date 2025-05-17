@@ -27,7 +27,7 @@ function VoucherFromBusiness() {
         const adata = {
           data: data
         }
-        Post('/api/VoucherEntry/UploadVoucher', adata).then((resp) => {
+        Post('/api/v1/VoucherEntry/UploadVoucher', adata).then((resp) => {
           console.log(resp);
           setapirespMsg(resp.data.errorMessage);
 

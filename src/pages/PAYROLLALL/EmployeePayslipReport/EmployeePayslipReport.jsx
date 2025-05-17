@@ -37,7 +37,7 @@ const EmployeePayslipReport = () => {
 
     const getDepartment = () => {
         try {
-            Post('/api/EmployeeManagement/GetAllDepartment')
+            Post('/api/v1/EmployeeManagement/GetAllDepartment')
                 .then(res => setDepartment(res.data.data))
         } catch (error) {
 

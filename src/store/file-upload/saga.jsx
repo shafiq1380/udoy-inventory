@@ -7,7 +7,7 @@ import { FILE_UPLOAD_REQUEST } from './actionTypes';
 function* fileUploadEntry(data) {
     // console.log("Data from saga revise --------->>>>", data.payload);
     try {
-        const fileUpload = yield Post('/api/DocumentAttachment/GetDocumentList', data.payload)
+        const fileUpload = yield Post('/api/v1/DocumentAttachment/GetDocumentList', data.payload)
         // console.log("fileUpload response ------->>>>", fileUpload);
 
         if (fileUpload.data.data.userID === null) {

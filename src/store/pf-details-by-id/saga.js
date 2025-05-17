@@ -17,7 +17,7 @@ function* fetchPFDetailsById(type) {
     };
     // console.log("fetchPFDetailsById data ----------->>> ", data);
     try {
-        const response = yield Post('/api/ProvidentFund/GetGPFDataDetailViewByID', data)
+        const response = yield Post('/api/v1/ProvidentFund/GetGPFDataDetailViewByID', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(fetchPFDetailsByIdSuccess(response.data.data));
     } catch (error) {
@@ -33,7 +33,7 @@ function* pfDataForUpdateById(type) {
     };
     // console.log("fetchPFDetailsById data ----------->>> ", data);
     try {
-        const response = yield Post('/api/ProvidentFund/GetGPFDataforUpdateByID', data)
+        const response = yield Post('/api/v1/ProvidentFund/GetGPFDataforUpdateByID', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(pfDataForUpdateByIdSuccess(response.data.data));
     } catch (error) {

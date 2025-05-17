@@ -9,7 +9,7 @@ import { getNodeListSuccess } from './actions';
 function* getNodeList(data) {
   // console.log('data', data)
   // try {
-  //   const response = yield Post('/api/UserManagement/GetNodeListByUser', data.payload);
+  //   const response = yield Post('/api/v1/UserManagement/GetNodeListByUser', data.payload);
   //   // console.log(response)
   //   if (response.data.success === true) {
   //     yield put(getNodeListSuccess(response.data.data));

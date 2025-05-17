@@ -13,6 +13,7 @@ const token = JSON.parse(getUserToken)
 export const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`,
+    'cCode': 'ADN',
 }
 
 export default axios.create({
@@ -24,6 +25,7 @@ export default axios.create({
 export const fileUploadHeaders = {
     'Content-Type': 'multipart/form-data',
     'Authorization': `Bearer ${token}`,
+    'cCode': 'ADN',
 }
 
 export async function Post(apiEndPoint, data) {
@@ -34,6 +36,7 @@ export async function Post(apiEndPoint, data) {
     const headers2 = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
+        'cCode': 'ADN',
     }
 
     return await axios.post(`${BASE_URL}${apiEndPoint}`, data, {
@@ -50,6 +53,7 @@ export async function LoginPost(apiEndPoint, data) {
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
+        'cCode': 'ADN',
     }
 
     return await axios.post(`${BASE_URL}${apiEndPoint}`, data, {

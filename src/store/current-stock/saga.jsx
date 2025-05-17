@@ -12,7 +12,7 @@ function* fetchCurrentStock(value) {
     }
 
     try {
-        const response = yield Post('/api/InvTransaction/GetCurrentStockQuantity', data)
+        const response = yield Post('/api/v1/InvTransaction/GetCurrentStockQuantity', data)
         // console.log("response from server", response.data.data)
 
         if (response.status == 200) {
@@ -33,7 +33,7 @@ function* postTransaction(value) {
     }
     console.log(value.payload)
     try {
-        const response = yield Post('/api/InvTransaction/PostInvTransaction', data)
+        const response = yield Post('/api/v1/InvTransaction/PostInvTransaction', data)
         // console.log("response from server", response)
         if (response.data.success === false) {
             yield put(failedTransaction(response.data.errorMessage))
@@ -52,7 +52,7 @@ function* deleteTransaction(value) {
     }
     try {
 
-        const response = yield Post('/api/InvTransaction/DeleteInvTransaction', data)
+        const response = yield Post('/api/v1/InvTransaction/DeleteInvTransaction', data)
         console.log("response from server", response.data)
         if (response.data.success === false) {
             yield put(failedTransaction(response.data.errorMessage))

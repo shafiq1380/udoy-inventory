@@ -83,7 +83,7 @@ const AnalysisTransactionReport = () => {
     const fetchAnalysis = async () => {
         const data = { data: analysisId }
         try {
-            const response = await Post('/api/CoaSetup/GetAllAnalysisCodeByType', data)
+            const response = await Post('/api/v1/CoaSetup/GetAllAnalysisCodeByType', data)
                 .then(res => setAnalysisList([{ id: 0, analysisCode: 0, analysisName: "ALL" }, ...res.data.data,]))
         } catch (error) {
             console.log(error)

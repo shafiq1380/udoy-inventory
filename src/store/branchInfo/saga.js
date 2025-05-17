@@ -6,7 +6,7 @@ import { ADD_BRANCH_INFORMATION, GET_BRANCH_INFORMATION, UPDATE_BRANCHINFORMATIO
 
 function* addBranchInformation(data) {
     try {
-        const branchInformation = yield Post('/api/BankInfo/AddBankBranchInformation', data.payload)
+        const branchInformation = yield Post('/api/v1/BankInfo/AddBankBranchInformation', data.payload)
         if (branchInformation?.data.success === false) {
             yield put(addBranchInformationFail(branchInformation.data.errorMessage))
         } else {
@@ -21,7 +21,7 @@ function* addBranchInformation(data) {
 
 function* getBranchInformation(data) {
     try {
-        const branchInformation = yield Post('/api/BankInfo/GetAllBankBranchInformation', data.payload)
+        const branchInformation = yield Post('/api/v1/BankInfo/GetAllBankBranchInformation', data.payload)
         if (branchInformation?.data.success === false) {
             yield put(addBranchInformationFail(branchInformation.data.errorMessage))
         } else {
@@ -36,7 +36,7 @@ function* getBranchInformation(data) {
 
 function* updateBranchInformation(data) {
     try {
-        const branchInformation = yield Post('/api/BankInfo/UpdateBankBranchInformationByID', data.payload)
+        const branchInformation = yield Post('/api/v1/BankInfo/UpdateBankBranchInformationByID', data.payload)
         // console.log(branchInformation)
         // if (branchInformation?.data.success === false) {
         //     yield put(addBranchInformationFail(branchInformation.data.errorMessage))

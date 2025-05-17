@@ -7,7 +7,7 @@ import { ADD_REVISE_VOUCHER_ENTRY } from './actionTypes';
 function* reviseVoucherEntry(data) {
     // console.log("Data from saga revise --------->>>>", data.payload);
     try {
-        const reviseVoucher = yield Post('/api/VoucherEntry/GetVoucherByRef', data.payload)
+        const reviseVoucher = yield Post('/api/v1/VoucherEntry/GetVoucherByRef', data.payload)
         // console.log("reviseVoucher response ------->>>>", reviseVoucher);
 
         if (reviseVoucher.data.data.userID === null) {

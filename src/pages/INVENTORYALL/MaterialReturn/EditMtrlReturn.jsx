@@ -102,7 +102,7 @@ const EditMtrlReturn = () => {
     };
 
     const fetchAllStoreList = () => {
-        Post('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
+        Post('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
             .then((res) => {
                 // console.log("res", res)
                 setAllStoreList(res.data.data)
@@ -123,7 +123,7 @@ const EditMtrlReturn = () => {
     // new code for search item list for purchase requisition
 
     const fetchProduct = () => {
-        Post('/api/Product/GetAllItemSearch')
+        Post('/api/v1/Product/GetAllItemSearch')
             .then((res) => {
                 if (res.data.success === true) {
                     setProdutDate(res.data.data)

@@ -60,7 +60,7 @@ const ViewTransactionList = () => {
 
         // console.log("data", data);
 
-        Post('/api/InvTransaction/GetTransactionList', { data: data })
+        Post('/api/v1/InvTransaction/GetTransactionList', { data: data })
             .then(res => {
                 setIsLoading(false)
                 setTransactionList(res.data.data)
@@ -69,7 +69,7 @@ const ViewTransactionList = () => {
 
 
     const getTransactionList = async () => {
-        Post('/api/InvTransaction/GetTransactionTypeList', { data: 0 })
+        Post('/api/v1/InvTransaction/GetTransactionTypeList', { data: 0 })
             .then(res => setTransactionTypeList(res.data.data))
     }
 
@@ -80,7 +80,7 @@ const ViewTransactionList = () => {
             data: id
         }
         try {
-            Post('/api/InvTransaction/GetTransactionToolTipByID', data)
+            Post('/api/v1/InvTransaction/GetTransactionToolTipByID', data)
                 .then(res => setTooltipData(res.data.data))
         } catch (error) {
 

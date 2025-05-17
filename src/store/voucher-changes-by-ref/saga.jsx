@@ -7,7 +7,7 @@ import { GET_VOUCHER_CHANGES_BY_REF_REQUEST } from './actionTypes';
 function* voucherChangesByRef(data) {
     // console.log("Data from saga changesVoucher --------->>>>", data.payload);
     try {
-        const changesVoucher = yield Post('/api/VoucherEntry/GetVoucherChangesByRef', data.payload)
+        const changesVoucher = yield Post('/api/v1/VoucherEntry/GetVoucherChangesByRef', data.payload)
         // console.log("changesVoucher response ------->>>>", changesVoucher.data);
 
         if (changesVoucher.data.success === true && changesVoucher.data.data.length > 0) {

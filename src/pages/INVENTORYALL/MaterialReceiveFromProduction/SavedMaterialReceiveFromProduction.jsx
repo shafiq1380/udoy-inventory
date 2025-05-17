@@ -85,7 +85,7 @@ const SavedMaterialReceiveFromProduction = ({ activeTab }) => {
                 trnCode2: "PMR"
             }
         }
-        await Post('/api/InvTransaction/GetAllSavedTransaction', data)
+        await Post('/api/V1/InvTransaction/GetAllSavedTransaction', data)
             .then(res => setTransactionData(res.data.data))
     }
 

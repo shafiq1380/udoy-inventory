@@ -80,11 +80,11 @@ const EditTransactionPage = () => {
     const [showSearchModal, setShowSearchModal] = useState(false)
     const [indext, setIndext] = useState(null)
 
-    const { data: allStoreList = [], fetchError } = useFetchData('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
-    const { data: productData = [] } = useFetchData('/api/Product/GetAllItemSearch')
+    const { data: allStoreList = [], fetchError } = useFetchData('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
+    const { data: productData = [] } = useFetchData('/api/v1/Product/GetAllItemSearch')
 
     const { data: allPartnerList = [] } = useFetchData('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
-    const { data: allItemList = [] } = useFetchData('/api/Product/GetAllItemList')
+    const { data: allItemList = [] } = useFetchData('/api/v1/Product/GetAllItemList')
 
     // console.log(allStoreList)
 

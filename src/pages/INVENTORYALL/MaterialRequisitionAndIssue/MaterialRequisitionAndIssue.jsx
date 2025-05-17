@@ -98,17 +98,17 @@ const MaterialRequisitionAndIssue = () => {
     const [mrrRef, setMrrRef] = useState('')
 
     const fetchTrnList = () => {
-        Post('/api/InvTransaction/GetTransactionTypeList')
+        Post('/api/v1/InvTransaction/GetTransactionTypeList')
             .then((res) => {
                 // console.log("res", res?.data?.data.find(item => item.trnCode === 'MRR'))
-                const data = res?.data?.data.find(item => item.trnCode === consumption?.value)?.trnAddValFormat
+                const data = res?.data?.data?.find(item => item.trnCode === consumption?.value)?.trnAddValFormat
                 setContent(data)
             })
     };
 
 
     const fetchAllStoreList = () => {
-        Post('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
+        Post('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
             .then((res) => {
                 // console.log("res", res)
                 setAllStoreList(res.data.data)
@@ -123,7 +123,7 @@ const MaterialRequisitionAndIssue = () => {
 
 
     const fetchProduct = () => {
-        Post('/api/Product/GetAllItemSearch')
+        Post('/api/v1/Product/GetAllItemSearch')
             .then((res) => {
                 if (res.data.success === true) {
                     setProdutDate(res.data.data)
@@ -133,7 +133,7 @@ const MaterialRequisitionAndIssue = () => {
 
     const getDepartment = async () => {
         try {
-            await Post('/api/EmployeeManagement/GetAllDepartment')
+            await Post('/api/v1/EmployeeManagement/GetAllDepartment')
                 .then(res => setDepartmentList(res.data.data))
         } catch (error) {
 
@@ -392,7 +392,7 @@ const MaterialRequisitionAndIssue = () => {
 
         // console.log("Data ---------->>>", data)
 
-        Post('/api/InvTransaction/InsertInvTransaction', data)
+        Post('/api/v1/InvTransaction/InsertInvTransaction', data)
             .then(res => {
                 if (res.data.success = true) {
 
@@ -433,7 +433,7 @@ const MaterialRequisitionAndIssue = () => {
     const getMrrInfo = () => {
         const data = { data: mrrRef.trim() }
         try {
-            Post('/api/InvTransaction/GetTransactionByTrnRef', data)
+            Post('/api/v1/InvTransaction/GetTransactionByTrnRef', data)
                 .then((res) => {
                     // console.log("Res ----------->>>>", res.data.data)
                     if (res.data.success === true) {
@@ -800,7 +800,7 @@ const MaterialRequisitionAndIssue = () => {
                                 <Label for="additionalRequirements" size='lg'>Additional Information</Label>
                                 <div style={{ height: '180px', overflow: 'scroll' }}>
                                     <JoditEditor
-                                        value={content}
+                                        value={content || ''}
                                         onChange={handleTableChange}
                                         config={{
                                             toolbar: false,
@@ -943,7 +943,7 @@ const MaterialRequisitionAndIssue = () => {
                                                             <Select
                                                                 styles={customStyles}
                                                                 onChange={(event) => handleChange(event, index, 'storeCode')}
-                                                                options={allStoreList.map((item) => {
+                                                                options={allStoreList?.map((item) => {
                                                                     return {
                                                                         label: item.storeCode,
                                                                         value: item.storeID
@@ -953,7 +953,7 @@ const MaterialRequisitionAndIssue = () => {
                                                                 name='storeCode'
                                                                 value={
                                                                     selectedStoreValues[index] ||
-                                                                    allStoreList.map((item) => {
+                                                                    allStoreList?.map((item) => {
 
                                                                         if (item.storeID === materialComponent[index]?.storeCode) {
                                                                             return {

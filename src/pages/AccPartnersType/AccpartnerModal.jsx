@@ -32,7 +32,7 @@ const AccpartnerModal = ({ handleModal, show, isEdit, updatePartnertData }) => {
         // console.log(partnerData)
         setLoading(true)
         try {
-            await Post('/api/PartnerManagement/InsertAccPartnerAcc', { data: partnerData })
+            await Post('/api/v1/PartnerManagement/InsertAccPartnerAcc', { data: partnerData })
                 .then(res => {
                     if (res.data.success === true) {
                         handleModal();
@@ -52,7 +52,7 @@ const AccpartnerModal = ({ handleModal, show, isEdit, updatePartnertData }) => {
         // console.log(partnerData)
         setLoading(true)
         try {
-            await Post('/api/PartnerManagement/UpdateAccPartnerAcc', { data: partnerData })
+            await Post('/api/v1/PartnerManagement/UpdateAccPartnerAcc', { data: partnerData })
                 .then(res => {
                     if (res.data.success === true) {
                         handleModal();

@@ -34,7 +34,7 @@ const TransactionListingReport = () => {
 
     const getAllTransactionTypes = () => {
         try {
-            Post('/api/InvTransaction/GetTransactionTypeList')
+            Post('/api/v1/InvTransaction/GetTransactionTypeList')
                 .then((response) => {
                     // console.log("response", response.data.data)
                     if (response.status === 200) {

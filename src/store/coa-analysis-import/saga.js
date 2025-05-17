@@ -6,7 +6,7 @@ import { COA_ANALYSIS_IMPORT, COA_IMPORT_BY_ID_DATA } from './actionType';
 function* coaAnalysisImportFile() {
     // console.log("Data from saga reverse --------->>>>", data.payload);
     try {
-        const coaAnalysisData = yield Post('/api/CoaSetup/CoaImportList')
+        const coaAnalysisData = yield Post('/api/v1/CoaSetup/CoaImportList')
         // console.log("coaAnalysisData ------->>>>", coaAnalysisData);
 
         if (coaAnalysisData.data.success === false) {
@@ -21,7 +21,7 @@ function* coaAnalysisImportFile() {
 
 function* coaAnalysisImportById(data) {
     // console.log("Data from saga coaAnalysisImportById --------->>>>", data.payload);
-    const coaAnalysisImportById = yield Post('/api/CoaSetup/CoaImportByID', data.payload)
+    const coaAnalysisImportById = yield Post('/api/v1/CoaSetup/CoaImportByID', data.payload)
     // console.log("coaAnalysisImportById ------->>>>", coaAnalysisImportById);
 
     if (coaAnalysisImportById.data.success === false) {

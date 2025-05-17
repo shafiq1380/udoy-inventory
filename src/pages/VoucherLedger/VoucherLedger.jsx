@@ -61,7 +61,7 @@ const VoucherLedger = () => {
 
     const getcoaCode = () => {
         try {
-            Post('/api/CoaSetup/GetAllCoaAccount')
+            Post('/api/v1/CoaSetup/GetAllCoaAccount')
                 .then(res => {
                     // console.log(res.data.data)
                     optionss(res.data.data)

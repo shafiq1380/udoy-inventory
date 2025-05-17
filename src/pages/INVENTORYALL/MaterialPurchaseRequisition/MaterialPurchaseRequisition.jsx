@@ -93,16 +93,16 @@ const MaterialPurchaseRequisition = () => {
     const [indext, setIndext] = useState(null)
 
 
-    const content = useFetchData('/api/InvTransaction/GetTransactionTypeList')?.data?.find(item => item.trnCode === 'MRR')?.trnAddValFormat
+    const content = useFetchData('/api/v1/InvTransaction/GetTransactionTypeList')?.data?.find(item => item.trnCode === 'MRR')?.trnAddValFormat
 
     const contentRef = useRef(content);
 
 
-    const { data: allStoreList = [], fetchError } = useFetchData('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
-    const { data: productData = [] } = useFetchData('/api/Product/GetAllItemSearch')
+    const { data: allStoreList = [], fetchError } = useFetchData('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
+    const { data: productData = [] } = useFetchData('/api/v1/Product/GetAllItemSearch')
 
     const { data: allPartnerList = [] } = useFetchData('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
-    const { data: allItemList = [] } = useFetchData('/api/Product/GetAllItemList')
+    const { data: allItemList = [] } = useFetchData('/api/v1/Product/GetAllItemList')
 
 
     // console.log(productData.length)
@@ -111,7 +111,7 @@ const MaterialPurchaseRequisition = () => {
 
     //get the store List
     // const fetchAllStoreList = () => {
-    //     Post('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
+    //     Post('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
     //         .then((res) => {
     //             // console.log("res", res)
     //             setAllStoreList(res.data.data)
@@ -121,7 +121,7 @@ const MaterialPurchaseRequisition = () => {
 
 
     // const fetchTrnList = () => {
-    //     Post('/api/InvTransaction/GetTransactionTypeList')
+    //     Post('/api/v1/InvTransaction/GetTransactionTypeList')
     //         .then((res) => {
     //             // console.log("res", res?.data?.data.find(item => item.trnCode === 'MRR'))
     //             const data = res?.data?.data.find(item => item.trnCode === 'MRR')?.trnAddValFormat
@@ -132,7 +132,7 @@ const MaterialPurchaseRequisition = () => {
 
 
     // const fetchProduct = () => {
-    //     Post('/api/Product/GetAllItemSearch')
+    //     Post('/api/v1/Product/GetAllItemSearch')
     //         .then((res) => {
     //             if (res.data.success === true) {
     //                 setProdutDate(res.data.data)
@@ -384,7 +384,7 @@ const MaterialPurchaseRequisition = () => {
 
         // console.log(data)
 
-        Post('/api/InvTransaction/InsertInvTransaction', data)
+        Post('/api/v1/InvTransaction/InsertInvTransaction', data)
             .then(res => {
                 if (res.data.success = true) {
                     // console.log(res.data)

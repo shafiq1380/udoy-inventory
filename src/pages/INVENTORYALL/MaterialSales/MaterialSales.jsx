@@ -91,17 +91,17 @@ const MaterialSales = () => {
 
 
     const fetchTrnList = () => {
-        Post('/api/InvTransaction/GetTransactionTypeList')
+        Post('/api/v1/InvTransaction/GetTransactionTypeList')
             .then((res) => {
                 // console.log("res", res?.data?.data.find(item => item.trnCode === 'MRR'))
-                const data = res?.data?.data.find(item => item.trnCode === 'SAL')?.trnAddValFormat
+                const data = res?.data?.data?.find(item => item.trnCode === 'SAL')?.trnAddValFormat
                 setContent(data)
                 // console.log(data)
             })
     };
 
     const fetchAllStoreList = () => {
-        Post('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
+        Post('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
             .then((res) => {
                 // console.log("res", res)
                 setAllStoreList(res.data.data)
@@ -119,7 +119,7 @@ const MaterialSales = () => {
 
 
     const fetchProduct = () => {
-        Post('/api/Product/GetAllItemSearch')
+        Post('/api/v1/Product/GetAllItemSearch')
             .then((res) => {
                 if (res.data.success === true) {
                     setProdutDate(res.data.data)
@@ -364,7 +364,7 @@ const MaterialSales = () => {
         }
 
 
-        Post('/api/InvTransaction/InsertInvTransaction', data)
+        Post('/api/v1/InvTransaction/InsertInvTransaction', data)
             .then(res => {
                 // if (res.data.success = true) {
                 //     // console.log(res.data.data)
@@ -560,7 +560,7 @@ const MaterialSales = () => {
                                                             <Select
                                                                 styles={customStyles}
                                                                 onChange={(event) => handleChange(event, index, 'storeCode')}
-                                                                options={allStoreList.map((item) => {
+                                                                options={allStoreList?.map((item) => {
                                                                     return {
                                                                         label: item.storeCode,
                                                                         value: item.storeID

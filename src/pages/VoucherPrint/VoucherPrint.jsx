@@ -78,7 +78,7 @@ const VoucherPrint = () => {
             data: 1
         }
         try {
-            Post('/api/VoucherType/GetAllVouchertype', data)
+            Post('/api/v1/VoucherType/GetAllVouchertype', data)
                 .then(res => setVoucherType(res.data.data))
         } catch (error) {
 

@@ -169,7 +169,7 @@ const EmployeeInformation = () => {
 
     const getAllDepartments = async () => {
         try {
-            await Post('/api/EmployeeManagement/GetAllDepartment')
+            await Post('/api/v1/EmployeeManagement/GetAllDepartment')
                 .then(res => {
                     res.data.data
                     setAllDepartment(res.data.data);

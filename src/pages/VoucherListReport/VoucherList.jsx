@@ -51,7 +51,7 @@ const VoucherList = () => {
             }
         }
         try {
-            Post('/api/VoucherEntry/GetVoucherList', data)
+            Post('/api/v1/VoucherEntry/GetVoucherList', data)
                 .then(res => {
                     setLoading(false)
                     setVoucherList(res.data.data)
@@ -95,7 +95,7 @@ const VoucherList = () => {
             data: id
         }
         try {
-            Post('/api/VoucherEntry/GetVoucherToolTipByID', data)
+            Post('/api/v1/VoucherEntry/GetVoucherToolTipByID', data)
                 .then(res => setTooltipData(res.data.data))
         } catch (error) {
 
@@ -115,7 +115,7 @@ const VoucherList = () => {
             data: 1
         }
         try {
-            Post('/api/VoucherType/GetAllVouchertype', data)
+            Post('/api/v1/VoucherType/GetAllVouchertype', data)
                 .then(res => setVoucherType(res.data.data))
         } catch (error) {
 

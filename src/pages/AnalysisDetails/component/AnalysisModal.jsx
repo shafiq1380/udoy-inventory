@@ -25,7 +25,7 @@ const AnalysisModal = ({ show, onCloseClick, analysisData, id, reloadPage, isEdi
     const addedAnalysis = () => {
         const data = { data: newData }
         try {
-            Post('/api/CoaSetup/AddCoaAnalysisCode', data)
+            Post('/api/v1/CoaSetup/AddCoaAnalysisCode', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)
@@ -50,7 +50,7 @@ const AnalysisModal = ({ show, onCloseClick, analysisData, id, reloadPage, isEdi
         const updateData = { ...newData, id: analysisData.id }
         const data = { data: updateData }
         try {
-            Post('/api/CoaSetup/UpdateCoaAnalysisCode', data)
+            Post('/api/v1/CoaSetup/UpdateCoaAnalysisCode', data)
                 .then(res => {
                     console.log(res)
                     if (res.data.success === false) {

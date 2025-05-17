@@ -31,7 +31,7 @@ const VoucherTypeSetupModal = ({ handleModal, show, isEdit, updateVoucherTypeDat
 
         setLoading(true)
         try {
-            await Post('/api/VoucherType/InsertVoucherTypeSetup', { data: voucherTypeData })
+            await Post('/api/v1/VoucherType/InsertVoucherTypeSetup', { data: voucherTypeData })
                 .then(res => {
                     if (res.data.success === true) {
                         handleModal();
@@ -50,7 +50,7 @@ const VoucherTypeSetupModal = ({ handleModal, show, isEdit, updateVoucherTypeDat
         // console.log(voucherTypeData)
         setLoading(true)
         try {
-            await Post('/api/VoucherType/UpdateVoucherTypeSetup', { data: voucherTypeData }).then(res => {
+            await Post('/api/v1/VoucherType/UpdateVoucherTypeSetup', { data: voucherTypeData }).then(res => {
                 if (res.data.success === true) {
                     handleModal();
                 } else {

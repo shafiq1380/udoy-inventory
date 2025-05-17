@@ -25,7 +25,7 @@ const TransactionUpdatePending = () => {
     const getTransactionValueUpdateLists = async () => {
         setLoading(true);
         try {
-            const res = await Post('/api/InvTransaction/GetInventoryValueUpdatePendingList');
+            const res = await Post('/api/v1/InvTransaction/GetInventoryValueUpdatePendingList');
             setPendingList(res.data.data);
         } catch (error) {
             console.log("Transaction Value Update List Error", error);

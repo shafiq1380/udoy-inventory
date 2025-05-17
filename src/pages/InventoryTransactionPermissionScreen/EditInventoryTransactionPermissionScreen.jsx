@@ -17,7 +17,7 @@ const EditInventoryTransactionPermissionScreen = () => {
     const getTransactionTypeLists = () => {
         setLoading(true);
         try {
-            Post('/api/InvTransaction/GetTransactionTypeList')
+            Post('/api/v1/InvTransaction/GetTransactionTypeList')
                 .then(res => {
                     setLoading(false);
                     setTransactionTypeLists(res.data.data);

@@ -50,7 +50,7 @@ function* fetchCoaSetupSaga(search) {
     const data = { data: "" || search.payload }
     // console.log('search Data ', data)
     try {
-        const response = yield Post('/api/CoaSetup/GetAllCoa', data)
+        const response = yield Post('/api/v1/CoaSetup/GetAllCoa', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(fetchCoaSetupSuccess(response.data.data));
     } catch (error) {
@@ -62,7 +62,7 @@ function* fetchCoaSetupSaga(search) {
 function* addCoaAccount(newData) {
     // console.log('Added COA account', newData.payload)
     try {
-        const response = yield Post('/api/CoaSetup/AddCoaAccount', newData.payload)
+        const response = yield Post('/api/v1/CoaSetup/AddCoaAccount', newData.payload)
         if (response.data.success === true) {
             yield put(UpdateCoaSetupSucess('Update Success'));
         } else if (response.data.success === false) {
@@ -77,7 +77,7 @@ function* addCoaAccount(newData) {
 function* updateCoaAccount(newData) {
     // console.log('coa account', newData)
     try {
-        const response = yield Post('/api/CoaSetup/UpdateCoaAccount', newData.payload)
+        const response = yield Post('/api/v1/CoaSetup/UpdateCoaAccount', newData.payload)
         if (response.data.success === true) {
             yield put(UpdateCoaSetupSucess('Update Success'));
         } else if (response.data.success === false) {
@@ -93,7 +93,7 @@ function* updateCoaAccount(newData) {
 
 function* addCoaCategory(newData) {
     try {
-        const response = yield Post('/api/CoaSetup/AddCoaCategory', newData.payload)
+        const response = yield Post('/api/v1/CoaSetup/AddCoaCategory', newData.payload)
         if (response.data.success === true) {
             yield put(UpdateCoaSetupSucess('Added Success'));
         } else if (response.data.success === false) {
@@ -108,7 +108,7 @@ function* addCoaCategory(newData) {
 
 function* UpdateCoaCategory(newData) {
     try {
-        const response = yield Post('/api/CoaSetup/UpdateCoaCategory', newData.payload)
+        const response = yield Post('/api/v1/CoaSetup/UpdateCoaCategory', newData.payload)
         if (response.data.success === true) {
             yield put(UpdateCoaSetupSucess('Update Success'));
         } else if (response.data.success === false) {
@@ -122,7 +122,7 @@ function* UpdateCoaCategory(newData) {
 function* fetchCoaAnalysis() {
     // console.log('called Analysis')
     try {
-        const response = yield Post('/api/CoaSetup/GetAllAnalysisType')
+        const response = yield Post('/api/v1/CoaSetup/GetAllAnalysisType')
         // console.log('Analysis', response)
         yield put(fetchCoaAnalysisSucess(response.data.data));
     } catch (error) {
@@ -132,7 +132,7 @@ function* fetchCoaAnalysis() {
 }
 function* fetchAllCoaInformation() {
     try {
-        const response = yield Post('/api/CoaSetup/GetAllCoaAccountWithAnalysis')
+        const response = yield Post('/api/v1/CoaSetup/GetAllCoaAccountWithAnalysis')
         // console.log("response from saga file ---------->>>>>>> ", response.data.data);
         yield put(fetchAllCoaAccountSuccess(response.data.data));
     } catch (error) {
@@ -144,7 +144,7 @@ function* fetchAllCoaInformation() {
 
 function* fetchVoucherType() {
     try {
-        const response = yield Post('/api/VoucherEntry/GetVoucherType')
+        const response = yield Post('/api/v1/VoucherEntry/GetVoucherType')
         // console.log("response from saga file ---------->>>>>>> ", response.data.data);
         yield put(fetchVoucherTypeSuccess(response.data.data));
     } catch (error) {
@@ -156,7 +156,7 @@ function* fetchVoucherType() {
 
 function* fetchEnterpriseSetup() {
     try {
-        const response = yield Post('/api/Organization/GetEnterpriseSetup')
+        const response = yield Post('/api/v1/Organization/GetEnterpriseSetup')
         // console.log("response from saga file ---------->>>>>>> ", response.data.data);
         yield put(fetchEnterpriseSetupSuccess(response.data.data));
     } catch (error) {
@@ -168,7 +168,7 @@ function* fetchEnterpriseSetup() {
 
 function* fetchDivisionSetup() {
     try {
-        const response = yield Post('/api/Organization/GetDivisionSetup')
+        const response = yield Post('/api/v1/Organization/GetDivisionSetup')
         // console.log("response from saga file ---------->>>>>>> ", response.data.data);
         yield put(fetchDivisionSuccess(response.data.data));
     } catch (error) {
@@ -180,7 +180,7 @@ function* fetchDivisionSetup() {
 
 function* fetchEntitySetup() {
     try {
-        const response = yield Post('/api/Organization/GetEntitySetup')
+        const response = yield Post('/api/v1/Organization/GetEntitySetup')
         // console.log("response from saga file ---------->>>>>>> ", response.data.data);
         yield put(fetchEntitySuccess(response.data.data));
     } catch (error) {
@@ -192,7 +192,7 @@ function* fetchEntitySetup() {
 
 function* fetchBusinessUnitSetup() {
     try {
-        const response = yield Post('/api/Organization/GetBusinessUnitSetup')
+        const response = yield Post('/api/v1/Organization/GetBusinessUnitSetup')
         // console.log("response from saga file ---------->>>>>>> ", response.data.data);
         yield put(fetchBusinessUnitSuccess(response.data.data));
     } catch (error) {

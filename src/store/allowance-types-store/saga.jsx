@@ -12,7 +12,7 @@ function* fetchAllowanceListsByType(type) {
     // console.log("fetchAllowanceListsByType data ----------->>> ", data);
 
     try {
-        const response = yield Post('/api/Payroll/GetAllowanceList', data)
+        const response = yield Post('/api/v1/Payroll/GetAllowanceList', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(fetchAllowanceListsByTypeSuccess(response.data.data));
     } catch (error) {

@@ -94,7 +94,7 @@ const SavedMaterialRequisitionAndIssue = ({ activeTab }) => {
                 trnCode2: "PIS"
             }
         }
-        await Post('/api/InvTransaction/GetAllSavedTransaction', data)
+        await Post('/api/V1/InvTransaction/GetAllSavedTransaction', data)
             .then(res => {
                 // console.log(res)
                 setTransactionData(res.data.data)

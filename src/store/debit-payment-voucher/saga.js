@@ -10,7 +10,7 @@ import { saveVoucherList } from "./actions";
 function* addVoucherEntry(data) {
     // console.log("Data from saga --------->>>>", data);
     try {
-        const voucherEntry = yield Post('/api/VoucherEntry/InsertVoucher', data.payload)
+        const voucherEntry = yield Post('/api/v1/VoucherEntry/InsertVoucher', data.payload)
         // console.log("voucherEntry ------->>>>", voucherEntry);
         if (voucherEntry?.data.success === false) {
             yield put(addVoucherEntryFail(voucherEntry.data.errorMessage))
@@ -26,7 +26,7 @@ function* addVoucherEntry(data) {
 // function* getAllSaveVoucherList() {
 //     console.log('anup')
 //     try {
-//         const response = yield Post('/api/VoucherEntry/GetSavedVoucherList')
+//         const response = yield Post('/api/v1/VoucherEntry/GetSavedVoucherList')
 //         if (response.data.success === true) {
 //             // yield put(getSaveVoucherList(response.data.data))
 //             yield put(saveVoucherList(response.data.data))
@@ -50,7 +50,7 @@ function* addVoucherEntry(data) {
 function* postVoucher(data) {
     const postData = data.payload;
     try {
-        const response = yield Post('/api/VoucherEntry/PostVoucher', postData)
+        const response = yield Post('/api/v1/VoucherEntry/PostVoucher', postData)
         if (response.data.success === false) {
             yield put(addVoucherEntryFail(response.data.errorMessage))
         } else {
@@ -68,7 +68,7 @@ function* getVoucherByIds(id) {
     }
 
     try {
-        const response = yield Post('/api/VoucherEntry/GetVoucherByID', data)
+        const response = yield Post('/api/v1/VoucherEntry/GetVoucherByID', data)
         // console.log("voucherEntry ------->>>>", response);
         if (response?.data.success === true) {
             yield put(getVoucherByIdSuccess(response.data.data))
@@ -82,7 +82,7 @@ function* getVoucherByIds(id) {
 function* deleteVoucher(data) {
     const deleteData = data.payload;
     try {
-        const response = yield Post('/api/VoucherEntry/DeleteVoucher', deleteData)
+        const response = yield Post('/api/v1/VoucherEntry/DeleteVoucher', deleteData)
         if (response.data.success === false) {
             yield put(addVoucherEntryFail(response.data.errorMessage))
         } else {
@@ -96,7 +96,7 @@ function* deleteVoucher(data) {
 function* reviewVoucher(data) {
     const postData = data.payload;
     try {
-        const response = yield Post('/api/VoucherEntry/ReviewVoucher', postData)
+        const response = yield Post('/api/v1/VoucherEntry/ReviewVoucher', postData)
         // console.log(response)
         if (response.data.success === true) {
             yield put(addVoucherEntrySuccess({ successMsg: 'Review Added successfully' }))

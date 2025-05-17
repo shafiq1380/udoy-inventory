@@ -34,7 +34,7 @@ const OpeningPayrollVoucher = () => {
 
     const getOpenigData = async () => {
         try {
-            const data = Post('/api/Payroll/GetPayrollOpening')
+            const data = Post('/api/v1/Payroll/GetPayrollOpening')
                 .then(res => setPayrollOpeningData(res.data.data?.reverse()))
         } catch (error) {
 
@@ -64,7 +64,7 @@ const OpeningPayrollVoucher = () => {
 
     const handleDownlaodPyroll = () => {
         try {
-            Post('/api/Payroll/GetPayrollOpeningTable')
+            Post('/api/v1/Payroll/GetPayrollOpeningTable')
                 .then(res => {
                     // console.log(res.data)
                     if (res.status === 200) {

@@ -157,7 +157,7 @@ const EmployeeInformation = () => {
 
     const getAllEmployeeTypes = async () => {
         try {
-            await Post('/api/EmployeeManagement/GetAllEmployeeTypes')
+            await Post('/api/v1/EmployeeManagement/GetAllEmployeeTypes')
                 .then(res => {
                     res.data.data
                     setEmployeeType(res.data.data);
@@ -193,7 +193,7 @@ const EmployeeInformation = () => {
         console.log("Data ----------->>>>> ", data);
 
         try {
-            Post('/api/EmployeeManagement/InsertEmployee', data)
+            Post('/api/v1/EmployeeManagement/InsertEmployee', data)
                 .then(res => {
                     // console.log("res --------->>>>>", res)
                     if (res.data.success === false) {

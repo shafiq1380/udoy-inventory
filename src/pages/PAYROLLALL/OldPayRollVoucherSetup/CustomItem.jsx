@@ -51,7 +51,7 @@ const CustomItem = ({ item, handleModal, getError }) => {
         const isValid = validation(data)
         if (isValid) {
             try {
-                Post('/api/Payroll/UpdatePayrollOpening', { data: data })
+                Post('/api/v1/Payroll/UpdatePayrollOpening', { data: data })
                     .then(res => {
                         if (res.data.errorMessage) {
                             setLoading(true)

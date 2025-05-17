@@ -49,7 +49,7 @@
 //         console.log(data)
 //         setLoading(true);
 //         try {
-//             await Post('/api/Payroll/UpdateSalaryVoucherSetup', { data: data })
+//             await Post('/api/v1/Payroll/UpdateSalaryVoucherSetup', { data: data })
 //                 .then(res => {
 //                     if (res.data.success === true) {
 //                         setLoading(false);
@@ -221,7 +221,7 @@
 //         // console.log(data)
 //         setLoading(true);
 //         try {
-//             const res = await Post('/api/Payroll/UpdateSalaryVoucherSetup', { data });
+//             const res = await Post('/api/v1/Payroll/UpdateSalaryVoucherSetup', { data });
 //             if (res.data.success === true) {
 //                 setLoading(false);
 //                 getError("Update Successful");
@@ -368,7 +368,7 @@ const RowItem = ({ row, rowIndex, handleModal, getError }) => {
         // console.log(data)
         setLoading(true);
         try {
-            const res = await Post('/api/Payroll/UpdateSalaryVoucherSetup', { data: data });
+            const res = await Post('/api/v1/Payroll/UpdateSalaryVoucherSetup', { data: data });
             if (res.data.success === true) {
                 setLoading(false);
                 getError({ message: "Updated Successful", color: 'success' });

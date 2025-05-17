@@ -14,7 +14,7 @@ const EmployeePayroll = () => {
     const navigate = useNavigate();
 
     const getAllEmployee = () => {
-        Post('/api/Payroll/GatAllPayrollList')
+        Post('/api/v1/Payroll/GatAllPayrollList')
             .then(res => {
                 res.data.data
                 setEmppyroll(res.data.data);

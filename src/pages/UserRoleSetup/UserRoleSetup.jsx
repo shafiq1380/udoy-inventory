@@ -36,7 +36,7 @@ const UserRoleSetup = () => {
     }
 
     const getAllRole = async () => {
-        const response = await Post('/api/UserManagement/GetAllRole')
+        const response = await Post('/api/v1/UserManagement/GetAllRole')
             .then(role => setUserRoles(role.data.data))
     }
 

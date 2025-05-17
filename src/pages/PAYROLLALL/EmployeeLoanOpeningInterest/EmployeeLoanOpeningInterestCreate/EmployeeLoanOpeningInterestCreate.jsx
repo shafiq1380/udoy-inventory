@@ -174,7 +174,7 @@ const EmployeeLoanOpeningInterestCreate = () => {
         // console.log("data --------->>>>>>>", data)
 
         try {
-            Post('/api/Payroll/PfDataInsert', data)
+            Post('/api/v1/Payroll/PfDataInsert', data)
                 .then((res) => {
                     if (res.data.success) {
                         toast.success("Allowance created successfully.", toastOptions);

@@ -31,7 +31,7 @@ const EditInventoryTransactionPermissionScreen = () => {
     const getTransactionPermissionsLists = () => {
         setLoading(true);
         try {
-            Post('/api/InvTransaction/GetTransactionPermission', { data: id })
+            Post('/api/v1/InvTransaction/GetTransactionPermission', { data: id })
                 .then(res => {
                     setLoading(false);
                     setGetTransactionPermissionLists(res.data.data);
@@ -81,7 +81,7 @@ const EditInventoryTransactionPermissionScreen = () => {
 
         setLoading(true);
         try {
-            Post('/api/InvTransaction/UpdateTransactionPermission', data)
+            Post('/api/v1/InvTransaction/UpdateTransactionPermission', data)
                 .then(res => {
                     // console.log("res", res);
                     if (res.status === 200) {

@@ -30,17 +30,17 @@ const ShowTransactionDetails = ({ show, handleCloseModal, tranID, tranRef }) => 
 
 
     const getTransactionDetails = () => {
-        Post('/api/InvTransaction/GetTransactionByID', { data: tranID })
+        Post('/api/v1/InvTransaction/GetTransactionByID', { data: tranID })
             .then(res => setTranDetails(res.data.data))
     };
 
     const getTransactionDetailsByRef = () => {
-        Post('/api/InvTransaction/GetTransactionByRef', { data: tranRef })
+        Post('/api/v1/InvTransaction/GetTransactionByRef', { data: tranRef })
             .then(res => setTranDetailsByRef(res.data.data))
     };
 
     const getChangeLogs = () => {
-        Post('/api/InvTransaction/GetTransactionChangeLogs', { data: tranID })
+        Post('/api/v1/InvTransaction/GetTransactionChangeLogs', { data: tranID })
             .then(res => setChangeLogs(res.data.data))
     };
 
@@ -92,7 +92,7 @@ const ShowTransactionDetails = ({ show, handleCloseModal, tranID, tranRef }) => 
                 userId: userID
             }
         }
-        Post('/api/InvTransaction/DeleteInvTransaction', data)
+        Post('/api/v1/InvTransaction/DeleteInvTransaction', data)
             .then(res => {
                 if (res.data.data !== null) {
                     toast.success("Transaction Deleted Successfully", toastOptions)
@@ -111,7 +111,7 @@ const ShowTransactionDetails = ({ show, handleCloseModal, tranID, tranRef }) => 
                 userId: userID
             }
         }
-        Post('/api/InvTransaction/UnpostInvTransaction', data)
+        Post('/api/v1/InvTransaction/UnpostInvTransaction', data)
             .then(res => {
                 if (res.data.data !== null) {
                     toast.success("Transaction UnPosted Successfully", toastOptions)

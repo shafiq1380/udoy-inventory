@@ -38,7 +38,7 @@ const GPFDetails = () => {
 
 
     const transactionTypeList = async () => {
-        const data = await Post('/api/ProvidentFund/GetGPFTransactionTypeList', {})
+        const data = await Post('/api/v1/ProvidentFund/GetGPFTransactionTypeList', {})
             .then(res =>
                 setTransTypes(res.data.data)
             );
@@ -77,7 +77,7 @@ const GPFDetails = () => {
         };
         // console.log("data", data)
         try {
-            const res = await Post('/api/ProvidentFund/PostGPFData', data);
+            const res = await Post('/api/v1/ProvidentFund/PostGPFData', data);
             if (res.data.success) {
                 toast.success('Allowance Posted Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);
@@ -108,7 +108,7 @@ const GPFDetails = () => {
         };
 
         try {
-            const res = await Post('/api/ProvidentFund/RemovePfData', data);
+            const res = await Post('/api/v1/ProvidentFund/RemovePfData', data);
             if (res.data.success) {
                 toast.success('Allowance Un-Posted Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);
@@ -131,7 +131,7 @@ const GPFDetails = () => {
         };
 
         try {
-            const res = await Post('/api/Payroll/PfVoucherCreate', data);
+            const res = await Post('/api/v1/Payroll/PfVoucherCreate', data);
             if (res.data.success) {
                 toast.success('Allowance Voucher Created Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);
@@ -147,7 +147,7 @@ const GPFDetails = () => {
     const exportToExcelDataOnly = () => {
         const data = { data: state?.id };
         try {
-            Post(`/api/ProvidentFund/GetGPFTransactionTable`, data)
+            Post(`/api/v1/ProvidentFund/GetGPFTransactionTable`, data)
                 .then(res => {
                     // console.log(res.data)
                     if (res.status === 200) {

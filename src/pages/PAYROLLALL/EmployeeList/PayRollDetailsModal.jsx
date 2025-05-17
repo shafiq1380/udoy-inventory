@@ -11,7 +11,7 @@ const PayRollDetailsModal = ({ isOpen, toggle, empPayId }) => {
     useEffect(() => {
         setPayrolldata({})
         if (empPayId) {
-            Post('/api/Payroll/GetEmployeePaySetup', { data: empPayId })
+            Post('/api/v1/Payroll/GetEmployeePaySetup', { data: empPayId })
                 .then(res => {
                     // console.log('Details', res.data)
                     if (res) {

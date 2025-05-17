@@ -60,7 +60,7 @@ const GPFCreate = () => {
 
 
     const transactionTypeList = async () => {
-        const data = await Post('/api/ProvidentFund/GetGPFTransactionTypeList', {})
+        const data = await Post('/api/v1/ProvidentFund/GetGPFTransactionTypeList', {})
             .then(res =>
                 setTransTypes(res.data.data.reverse())
             );
@@ -174,7 +174,7 @@ const GPFCreate = () => {
         // console.log("data --------->>>>>>>", data)
 
         try {
-            Post('/api/ProvidentFund/GPFDataInsert', data)
+            Post('/api/v1/ProvidentFund/GPFDataInsert', data)
                 .then((res) => {
                     if (res.data.success) {
                         toast.success("Allowance created successfully.", toastOptions);
@@ -339,7 +339,7 @@ const GPFCreate = () => {
         // console.log(data)
         setAllowanceData([]);
         setFilteredData([]);
-        const response = await Post('/api/ProvidentFund/GetGPFSalaryByDate', { data: data })
+        const response = await Post('/api/v1/ProvidentFund/GetGPFSalaryByDate', { data: data })
             .then(res => {
                 setLoadingData(false)
                 const updatedSecondArray = allowanceData?.map((item) => {

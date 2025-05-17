@@ -76,7 +76,7 @@ const UserList = () => {
     //view Derails Modal 
     // const toggleViewModal = async (usr) => {
     //     setUserLoading(true)
-    //     const user = await Post('/api/UserManagement/GetLoginInformationByCode', { data: usr.userID })
+    //     const user = await Post('/api/v1/UserManagement/GetLoginInformationByCode', { data: usr.userID })
     //         .then(res => {
     //             // res.data.data
     //             if (res) {

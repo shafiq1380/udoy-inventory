@@ -139,7 +139,7 @@ const CreateWPPFAllowance = () => {
         };
 
         try {
-            const res = await Post('/api/Payroll/AllowanceDataInsert', data);
+            const res = await Post('/api/v1/Payroll/AllowanceDataInsert', data);
             if (res.data.success) {
                 toast.success("Allowance created successfully.", toastOptions);
                 setTimeout(() => {

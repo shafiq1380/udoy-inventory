@@ -182,7 +182,7 @@ const OvertimeEdit = () => {
         // console.log("Update Allowance Data", data);
 
         try {
-            Post('/api/Payroll/AllowanceDataUpdate', data)
+            Post('/api/v1/Payroll/AllowanceDataUpdate', data)
                 .then((res) => {
                     if (res.data.success) {
                         toast.success("Allowance updated successfully.", toastOptions);

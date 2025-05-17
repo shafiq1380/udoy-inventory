@@ -17,7 +17,7 @@ const TableOfContent = () => {
 
     const fetchVoucherData = async () => {
         try {
-            const data = Post('/api/Payroll/GetSalaryVoucherSetup')
+            const data = Post('/api/v1/Payroll/GetSalaryVoucherSetup')
                 .then(res => {
                     // setVoucherData((res.data.data))
                     if (res.data.data) {

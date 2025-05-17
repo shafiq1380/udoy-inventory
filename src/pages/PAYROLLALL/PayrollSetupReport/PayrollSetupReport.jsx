@@ -14,7 +14,7 @@ const PayrollSetupReport = () => {
 
     const getData = () => {
         try {
-            Post('/api/Payroll/GetAllEmployeePaySetupTable')
+            Post('/api/v1/Payroll/GetAllEmployeePaySetupTable')
                 .then(res => setData(res.data))
         } catch (error) {
 
@@ -66,7 +66,7 @@ const PayrollSetupReport = () => {
 
     const handleDownload = () => {
         try {
-            Post('/api/Payroll/GetAllEmployeePaySetupDetail')
+            Post('/api/v1/Payroll/GetAllEmployeePaySetupDetail')
                 .then(res => {
                     console.log(res.data)
                     if (res.status === 200) {

@@ -19,7 +19,7 @@ const GPFLists = () => {
     const dispatch = useDispatch();
 
     const transactionTypeList = async () => {
-        const data = await Post('/api/ProvidentFund/GetGPFTransactionTypeList', {})
+        const data = await Post('/api/v1/ProvidentFund/GetGPFTransactionTypeList', {})
             .then(res =>
                 setTransTypes(res.data.data)
             );

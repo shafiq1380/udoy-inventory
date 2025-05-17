@@ -97,7 +97,7 @@ const PeriodSetup = () => {
             data: 0
         }
         try {
-            await Post('/api/VoucherEntry/GetAllPeriodList', data)
+            await Post('/api/v1/VoucherEntry/GetAllPeriodList', data)
                 .then(res => setPeriods(res.data.data))
         } catch (error) {
             console.log(error)

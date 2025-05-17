@@ -76,7 +76,7 @@ const DetailsWPPFAllowance = () => {
         // console.log("data", data)
 
         try {
-            const res = await Post('/api/Payroll/PostAllowanceData', data);
+            const res = await Post('/api/v1/Payroll/PostAllowanceData', data);
             if (res.data.success) {
                 toast.success('Allowance Posted Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);
@@ -102,7 +102,7 @@ const DetailsWPPFAllowance = () => {
         };
 
         try {
-            const res = await Post('/api/Payroll/RemoveAllowanceData', data);
+            const res = await Post('/api/v1/Payroll/RemoveAllowanceData', data);
             if (res.data.success) {
                 toast.success('Allowance Un-Posted Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);
@@ -154,7 +154,7 @@ const DetailsWPPFAllowance = () => {
         };
 
         try {
-            const res = await Post('/api/Payroll/AllowanceVoucherCreate', data);
+            const res = await Post('/api/v1/Payroll/AllowanceVoucherCreate', data);
             if (res.data.success) {
                 toast.success('Allowance Voucher Created Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);

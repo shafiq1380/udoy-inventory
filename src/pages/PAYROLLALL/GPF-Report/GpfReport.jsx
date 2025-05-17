@@ -55,7 +55,7 @@ const GpfReport = () => {
 
     const getEmployee = () => {
         try {
-            Post('/api/EmployeeManagement/GetAllEmployee')
+            Post('/api/v1/EmployeeManagement/GetAllEmployee')
                 .then(res => setEmployee(res.data.data))
         } catch (error) {
 
@@ -63,7 +63,7 @@ const GpfReport = () => {
     }
     const getEmployeeType = () => {
         try {
-            Post('/api/Payroll/GetEmployeeType')
+            Post('/api/v1/Payroll/GetEmployeeType')
                 .then(res => setEmployeeType(res.data.data))
         } catch (error) {
 

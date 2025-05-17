@@ -61,7 +61,7 @@ const Sidebar = (props) => {
             <span className="logo-lg">
               {/* <img src={logoLightPng} alt="" height="19" /> */}
               {/* <img src={logoLightPng} alt="" height="40" /> */}
-              <img src={inventorySystem} alt="" height="47" />
+              <img src={inventorySystem} alt="" height="70" />
             </span>
           </Link>
         </div>

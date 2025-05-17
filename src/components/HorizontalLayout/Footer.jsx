@@ -7,10 +7,10 @@ const Footer = () => {
       <footer className="footer">
         <Container fluid={true}>
           <Row>
-            <Col md={6}>© {new Date().getFullYear()} Bangladesh Steel & Engineering Corporation. All Rights Reserved</Col>
+            <Col md={6}>© {new Date().getFullYear()} UDOY</Col>
             <Col md={6}>
               <div className="text-sm-end d-none d-sm-block">
-                Developed by BSEC Development Team
+                Developed by UDOY Team
               </div>
             </Col>
           </Row>

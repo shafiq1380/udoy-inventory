@@ -82,7 +82,8 @@ const Header = (props) => {
                   <img src={logo} alt="" height="22" />
                 </span>
                 <span className="logo-lg">
-                  <img src={logoDark} alt="" height="17" />
+                  {/* <img src={logoDark} alt="" height="17" /> */}
+                  <h4 className="logo-lg-text text-dark">Inventory Management System</h4>
                 </span>
               </Link>
 
@@ -93,7 +94,8 @@ const Header = (props) => {
                 </span>
                 <span className="logo-lg">
                   {/* <img src={logoLight} alt="" height="19" /> */}
-                  <img src={logoLight} alt="" height="40" />
+                  {/* <img src={logoLight} alt="" height="40" /> */}
+                  <h1 className="logo-lg-text text-light">Inventory Management System</h1>
                 </span>
               </Link>
 

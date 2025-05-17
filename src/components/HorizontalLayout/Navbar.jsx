@@ -209,14 +209,14 @@ const Navbar = props => {
                                 >
                                   {submenuItem.title}
                                   {
-                                    submenuItem.nestedSubmenu.length > 0 &&
+                                    submenuItem.nestedSubmenu?.length > 0 &&
                                     <div className="arrow-down"></div>
                                   }
                                 </Link>
 
                                 {/* nested submenu start here */}
                                 {
-                                  submenuItem?.nestedSubmenu.length > 0 &&
+                                  submenuItem?.nestedSubmenu?.length > 0 &&
                                   <div
                                     className={classname("dropdown-menu", { show: email })}
                                   >

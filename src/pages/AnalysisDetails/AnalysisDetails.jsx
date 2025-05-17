@@ -53,7 +53,7 @@ const AnalysisDetails = () => {
     const fetchAnalysis = async () => {
         const data = { data: id }
         try {
-            const response = await Post('/api/CoaSetup/GetAllAnalysisCodeByType', data)
+            const response = await Post('/api/v1/CoaSetup/GetAllAnalysisCodeByType', data)
                 .then(res => setAnalysis(res.data.data))
         } catch (error) {
             console.log(error)

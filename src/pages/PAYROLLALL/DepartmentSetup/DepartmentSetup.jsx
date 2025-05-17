@@ -22,7 +22,7 @@ const DepartmentSetup = () => {
 
     const getDepartment = async () => {
         try {
-            await Post('/api/EmployeeManagement/GetAllDepartment')
+            await Post('/api/v1/EmployeeManagement/GetAllDepartment')
                 .then(res => setDepartmentList(res.data.data))
         } catch (error) {
 

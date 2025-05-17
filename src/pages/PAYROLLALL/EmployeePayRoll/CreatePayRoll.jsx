@@ -22,7 +22,7 @@ const CreatePayRoll = () => {
 
     const getData = () => {
         try {
-            Post('/api/Payroll/GetCurrentPayroll')
+            Post('/api/v1/Payroll/GetCurrentPayroll')
                 .then(res => {
                     setData(res.data.data)
                 })
@@ -76,7 +76,7 @@ const CreatePayRoll = () => {
             userID: userID
         }
         try {
-            await Post('/api/Payroll/PayrollCreate', { data: data })
+            await Post('/api/v1/Payroll/PayrollCreate', { data: data })
                 .then(res => {
                     if (res.data.success === false) {
                         setError({ message: res.data.errorMessage, color: 'danger' })
@@ -94,7 +94,7 @@ const CreatePayRoll = () => {
     //download the excel file 
     const handleDownload = () => {
         try {
-            Post('/api/Payroll/GetAllEmployeePaySetupDetail')
+            Post('/api/v1/Payroll/GetAllEmployeePaySetupDetail')
                 .then(res => {
                     if (res.status === 200) {
                         res.data.fileContents = res.data.fileContents.replace(/^data:image\/[a-z]+;base64,/, "");

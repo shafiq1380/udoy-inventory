@@ -26,7 +26,7 @@ const Payroll = () => {
 
 
     const getPayroll = async () => {
-        const response = await Post('/api/Payroll/GetEmployeePaySetup', {
+        const response = await Post('/api/v1/Payroll/GetEmployeePaySetup', {
             data: id
         }).then(res => {
             if (res.data.success === true) {
@@ -139,7 +139,7 @@ const Payroll = () => {
 
         // console.log(updatedData)
         try {
-            Post('/api/Payroll/UpdateEmployeePaySetup', { data: updatedData })
+            Post('/api/v1/Payroll/UpdateEmployeePaySetup', { data: updatedData })
                 .then((res) => {
                     // console.log(res)
                     if (res.data.success === true) {

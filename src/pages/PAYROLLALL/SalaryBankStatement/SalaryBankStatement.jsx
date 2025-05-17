@@ -24,7 +24,7 @@ const SalaryBankStatement = () => {
 
     const getSalaryMonths = () => {
         try {
-            Post('/api/Payroll/GetSalaryList')
+            Post('/api/v1/Payroll/GetSalaryList')
                 .then((res) => {
                     if (res.data.success === true) {
                         setSalaryMonths(res.data.data)
@@ -37,7 +37,7 @@ const SalaryBankStatement = () => {
 
     const getBankNames = () => {
         try {
-            Post('/api/Payroll/GetBankList')
+            Post('/api/v1/Payroll/GetBankList')
                 .then((res) => {
                     if (res.data.success === true) {
                         setBankNames(res.data.data)
@@ -113,7 +113,7 @@ const SalaryBankStatement = () => {
             }
         }
         try {
-            Post(`/api/Payroll/GetBankStatement`, data)
+            Post(`/api/v1/Payroll/GetBankStatement`, data)
                 .then(res => {
                     // console.log(res.data)
                     if (res.status === 200) {

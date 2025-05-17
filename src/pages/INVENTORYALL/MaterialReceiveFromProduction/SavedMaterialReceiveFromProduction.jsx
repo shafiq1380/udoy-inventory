@@ -85,7 +85,7 @@ const SavedMaterialReceiveFromProduction = ({ activeTab }) => {
                 trnCode2: "PMR"
             }
         }
-        await Post('/api/InvTransaction/GetAllSavedTransaction', data)
+        await Post('/api/V1/InvTransaction/GetAllSavedTransaction', data)
             .then(res => setTransactionData(res.data.data))
     }
 
@@ -101,7 +101,7 @@ const SavedMaterialReceiveFromProduction = ({ activeTab }) => {
             data: id
         }
         try {
-            Post('/api/InvTransaction/GetTransactionToolTipByID', data)
+            Post('/api/v1/InvTransaction/GetTransactionToolTipByID', data)
                 .then(res => setTooltipData(res.data.data))
         } catch (error) {
 

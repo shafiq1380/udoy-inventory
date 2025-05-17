@@ -32,7 +32,7 @@ const UserRoleModal = ({ showModal, toggleModal, isEdit, updatData, reloadPage }
         const newData = { roleName: roleName, menuList: checkedItems }
         const data = { data: newData }
         try {
-            Post('/api/UserManagement/AddRole', data)
+            Post('/api/v1/UserManagement/AddRole', data)
                 .then(res => {
                     if (res.data.data === false) {
                         //If Error Show Something
@@ -52,7 +52,7 @@ const UserRoleModal = ({ showModal, toggleModal, isEdit, updatData, reloadPage }
         const newData = { roleID: updatData.roleID, roleName: roleName, menuList: checkedItems }
         const data = { data: newData }
         try {
-            Post('/api/UserManagement/UpdateRole', data)
+            Post('/api/v1/UserManagement/UpdateRole', data)
                 .then(res => {
                     if (res.data.data === false) {
                         //If Error Show Something
@@ -70,7 +70,7 @@ const UserRoleModal = ({ showModal, toggleModal, isEdit, updatData, reloadPage }
 
     useEffect(() => {
         try {
-            Post('/api/UserManagement/GetAllNodes')
+            Post('/api/v1/UserManagement/GetAllNodes')
                 .then(res => setMenuData(res.data.data))
         } catch (error) {
 

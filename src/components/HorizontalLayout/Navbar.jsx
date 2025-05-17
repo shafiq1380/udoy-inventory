@@ -109,54 +109,54 @@ const Navbar = props => {
   //get all node list by user
 
   const userID = JSON.parse(localStorage.getItem('userID'))
-  const [nodeList, setNodeList] = useState([])
+  // const [nodeList, setNodeList] = useState([])
 
-  const getUserNodeList = () => {
-    const data = { data: userID }
+  // const getUserNodeList = () => {
+  //   const data = { data: userID }
 
-    try {
-      const response = Post('/api/UserManagement/GetNodeListByUser', data)
-        .then(res => setNodeList(res.data.data))
-    } catch (error) {
-    }
-  }
+  //   try {
+  //     const response = Post('/api/v1/UserManagement/GetNodeListByUser', data)
+  //       .then(res => setNodeList(res.data.data))
+  //   } catch (error) {
+  //   }
+  // }
 
-  const nodeListID = nodeList.map(node => {
-    return node.nodeID
-  })
+  // const nodeListID = nodeList.map(node => {
+  //   return node.nodeID
+  // })
 
-  const sortedArray = nodeListID.sort((a, b) => a - b);
-
-
-  function filterMenu(menu, sortedArray) {
-    return menu.map(menuItem => {
-      const filteredSubMenu = menuItem.subMenu
-        ? filterMenu(menuItem.subMenu, sortedArray)
-        : [];
-
-      const filteredNestedSubmenu = menuItem.nestedSubmenu
-        ? filterMenu(menuItem.nestedSubmenu, sortedArray)
-        : [];
-
-      if (sortedArray.includes(menuItem.id) || filteredSubMenu.length > 0 || filteredNestedSubmenu.length > 0) {
-        return {
-          ...menuItem,
-          subMenu: filteredSubMenu,
-          nestedSubmenu: filteredNestedSubmenu
-        };
-      }
-
-      return null;
-    }).filter(menuItem => menuItem !== null);
-  }
-
-  const filteredMenuData = filterMenu(menuShow, sortedArray);
+  // const sortedArray = nodeListID.sort((a, b) => a - b);
 
 
+  // function filterMenu(menu, sortedArray) {
+  //   return menu.map(menuItem => {
+  //     const filteredSubMenu = menuItem.subMenu
+  //       ? filterMenu(menuItem.subMenu, sortedArray)
+  //       : [];
 
-  useEffect(() => {
-    getUserNodeList()
-  }, [])
+  //     const filteredNestedSubmenu = menuItem.nestedSubmenu
+  //       ? filterMenu(menuItem.nestedSubmenu, sortedArray)
+  //       : [];
+
+  //     if (sortedArray.includes(menuItem.id) || filteredSubMenu.length > 0 || filteredNestedSubmenu.length > 0) {
+  //       return {
+  //         ...menuItem,
+  //         subMenu: filteredSubMenu,
+  //         nestedSubmenu: filteredNestedSubmenu
+  //       };
+  //     }
+
+  //     return null;
+  //   }).filter(menuItem => menuItem !== null);
+  // }
+
+  // const filteredMenuData = filterMenu(menuShow, sortedArray);
+
+
+
+  // useEffect(() => {
+  //   getUserNodeList()
+  // }, [])
 
 
   return (
@@ -177,7 +177,7 @@ const Navbar = props => {
                 {/* menu start from Here */}
 
                 {
-                  filteredMenuData.map(menuItem =>
+                  inventoryMenu.map(menuItem =>
                     <li className="nav-item dropdown" key={menuItem.id}>
                       {/* Menu Header */}
                       <Link
@@ -196,7 +196,7 @@ const Navbar = props => {
                       {menuItem.subMenu &&
                         <div className={classname("dropdown-menu")}>
                           {
-                            menuItem?.subMenu.map(submenuItem =>
+                            menuItem && menuItem.subMenu && menuItem.subMenu.map(submenuItem =>
                               <div className="dropdown" key={submenuItem.id}>
                                 <Link
                                   className="dropdown-item dropdown-toggle arrow-none"

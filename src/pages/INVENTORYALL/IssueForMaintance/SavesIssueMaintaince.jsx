@@ -83,7 +83,7 @@ const SavedIssueMaintance = ({ activeTab }) => {
                 trnCode2: "MIS"
             }
         }
-        await Post('/api/InvTransaction/GetAllSavedTransaction', data)
+        await Post('/api/V1/InvTransaction/GetAllSavedTransaction', data)
             .then(res =>
                 // console.log(res.data)
                 setTransactionData(res.data.data)
@@ -96,7 +96,7 @@ const SavedIssueMaintance = ({ activeTab }) => {
             data: id
         }
         try {
-            Post('/api/InvTransaction/GetTransactionToolTipByID', data)
+            Post('/api/v1/InvTransaction/GetTransactionToolTipByID', data)
                 .then(res => setTooltipData(res.data.data))
         } catch (error) {
 

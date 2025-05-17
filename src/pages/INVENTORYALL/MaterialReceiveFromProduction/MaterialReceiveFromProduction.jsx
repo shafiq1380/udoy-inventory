@@ -89,10 +89,10 @@ const MaterialReceiveFromProduction = () => {
 
 
     const fetchTrnList = () => {
-        Post('/api/InvTransaction/GetTransactionTypeList')
+        Post('/api/v1/InvTransaction/GetTransactionTypeList')
             .then((res) => {
                 // console.log("res", res?.data?.data.find(item => item.trnCode === 'MRR'))
-                const data = res?.data?.data.find(item => item.trnCode === 'PMR')?.trnAddValFormat
+                const data = res?.data?.data?.find(item => item.trnCode === 'PMR')?.trnAddValFormat
                 setContent(data)
                 // console.log(data)
             })
@@ -100,14 +100,14 @@ const MaterialReceiveFromProduction = () => {
 
 
     const fetchAllStoreList = () => {
-        Post('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
+        Post('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
             .then((res) => {
                 // console.log("res", res)
                 setAllStoreList(res.data.data)
             })
     };
     const fetchPartner = () => {
-        Post('/api/PartnerManagement/GetAllPartner', { data: 0 })
+        Post('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
             .then((res) => {
                 // console.log("res", res)
                 setAllPartnerList(res.data.data)
@@ -123,7 +123,7 @@ const MaterialReceiveFromProduction = () => {
 
 
     const fetchProduct = () => {
-        Post('/api/Product/GetAllItemSearch')
+        Post('/api/v1/Product/GetAllItemSearch')
             .then((res) => {
                 if (res.data.success === true) {
                     setProdutDate(res.data.data)
@@ -342,7 +342,7 @@ const MaterialReceiveFromProduction = () => {
             }
         }
 
-        Post('/api/InvTransaction/InsertInvTransaction', data)
+        Post('/api/v1/InvTransaction/InsertInvTransaction', data)
             .then(res => {
                 if (res.data.success = true) {
                     if (res.data.success = true) {
@@ -517,7 +517,7 @@ const MaterialReceiveFromProduction = () => {
                                                             <Select
                                                                 styles={customStyles}
                                                                 onChange={(event) => handleChange(event, index, 'storeCode')}
-                                                                options={allStoreList.map((item) => {
+                                                                options={allStoreList?.map((item) => {
                                                                     return {
                                                                         label: item.storeCode,
                                                                         value: item.storeID

@@ -71,7 +71,7 @@ const PartnerInformationEdit = () => {
 
     const getAllPartnerType = () => {
         try {
-            Post('/api/PartnerManagement/GetAllPartnerType')
+            Post('/api/v1/PartnerManagement/GetAllPartnerType')
                 .then(res => {
                     res.data.data
                     setPartnerTypes(res.data.data);
@@ -129,7 +129,7 @@ const PartnerInformationEdit = () => {
         // console.log("Data ----------->>>", data);
 
         try {
-            Post('/api/PartnerManagement/UpdatePartner', data)
+            Post('/api/v1/PartnerManagement/UpdatePartner', data)
                 .then(res => {
                     // console.log("res", res);
                     if (res.status === 200) {

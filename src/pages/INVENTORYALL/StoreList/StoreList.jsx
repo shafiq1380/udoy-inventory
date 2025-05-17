@@ -18,7 +18,7 @@ const StoreList = () => {
 
 
     const fetchAllStoreList = async () => {
-        const response = await Post('/api/Product/GetAllStore')
+        const response = await Post('/api/v1/Product/GetAllStore')
             .then(res => setAllStoreList(res.data.data))
     }
 
@@ -116,7 +116,7 @@ const StoreList = () => {
                             <CardBody>
                                 <TableContainer
                                     columns={columns}
-                                    data={allStoreList}
+                                    data={allStoreList || []}
                                     isGlobalFilter={true}
                                     isAddUserList={true}
                                     onClickBtn={handleShowModal}

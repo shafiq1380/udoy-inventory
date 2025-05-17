@@ -238,7 +238,7 @@ const CreateOT = () => {
         // console.log("data --------->>>>>>>", data)
 
         try {
-            Post('/api/Payroll/AllowanceDataInsert', data)
+            Post('/api/v1/Payroll/AllowanceDataInsert', data)
                 .then((res) => {
                     if (res.data.success) {
                         toast.success("Allowance created successfully.", toastOptions);

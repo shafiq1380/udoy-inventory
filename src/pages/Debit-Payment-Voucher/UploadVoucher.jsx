@@ -42,7 +42,7 @@ const UploadVoucher = () => {
             // console.log("Data ---------->>>> ", data);
             const loadData = { data: data }
             try {
-                Post('/api/VoucherEntry/UploadVoucher', loadData)
+                Post('/api/v1/VoucherEntry/UploadVoucher', loadData)
                     .then((res) => {
                         // console.log("Res ----------->>>> ", res);
                         setUploadSuccess(res.data.success);

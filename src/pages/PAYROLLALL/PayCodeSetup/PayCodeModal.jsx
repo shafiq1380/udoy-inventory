@@ -25,7 +25,7 @@ const PayCodeModal = ({ handleModal, show, isEdit, updateData }) => {
         setLoading(true)
         const data = { ...payCodeData, empTypeID: 0 }
         try {
-            await Post('/api/Payroll/CreateSalaryForCode', { data: data })
+            await Post('/api/v1/Payroll/CreateSalaryForCode', { data: data })
                 .then(res => {
                     if (res?.data?.errorMessage) {
                         setLoading(false)
@@ -51,7 +51,7 @@ const PayCodeModal = ({ handleModal, show, isEdit, updateData }) => {
         // console.log(payCodeData)
 
         try {
-            await Post('/api/Payroll/UpdateSalaryForCode', { data: payCodeData })
+            await Post('/api/v1/Payroll/UpdateSalaryForCode', { data: payCodeData })
                 .then(res => {
                     if (res?.data?.errorMessage) {
                         setLoading(false)

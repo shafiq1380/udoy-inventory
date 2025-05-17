@@ -1,8 +1,8 @@
 import { put, takeEvery, } from "redux-saga/effects";
 
 // Login Redux States
-import { LOGIN_USER, LOGOUT_USER } from "./actionTypes";
-import { apiError, logoutUserSuccess } from "./actions";
+import { LOGIN_USER, LOGOUT_USER, SET_USER_INFORMATION } from "./actionTypes";
+import { apiError, logoutUserSuccess, setUserInformation } from "./actions";
 
 import { LoginPost, Post } from "../../../utils/https";
 import { toast } from "react-toastify";
@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 
 function* loginUser({ payload: { user, history } }) {
 
-  console.log("user action", user);
+  // console.log("user saga", user);
 
   try {
     // localStorage.setItem('userID', JSON.stringify(user.data.userID.trim()))
@@ -18,7 +18,7 @@ function* loginUser({ payload: { user, history } }) {
     // localStorage.setItem('module', JSON.stringify(3))
     // sessionStorage.setItem('module', JSON.stringify(3));
 
-    const getToken = yield LoginPost(`/api/Auth/Login?userid=${user.userid.trim()}&password=${user.password}`);
+    const getToken = yield LoginPost(`/api/v1/InvTransaction/Login?userid=${user.userid.trim()}&password=${user.password}`);
 
     // console.log('response', getToken)
 
@@ -31,6 +31,17 @@ function* loginUser({ payload: { user, history } }) {
       const authTimestamp = new Date().getTime(); // for get local pc time
       localStorage.setItem("authTimestamp", authTimestamp.toString()); // set local pc time
       localStorage.setItem('userId', user.userid);
+
+      localStorage.setItem('userName', JSON.stringify(getToken.data.data.userName));
+      localStorage.setItem('empCode', JSON.stringify(getToken.data.data.empCode));
+      localStorage.setItem('userDepartment', JSON.stringify(getToken.data.data.userDepartment));
+      localStorage.setItem('userDesignation', JSON.stringify(getToken.data.data.userDesignation));
+      localStorage.setItem('userEmail', JSON.stringify(getToken.data.data.userEmail));
+      localStorage.setItem('userMobile', JSON.stringify(getToken.data.data.userMobile));
+      localStorage.setItem('userPhoto', JSON.stringify(getToken.data.data.userPhoto));
+
+      // set user information in setUserInformation
+      yield put(setUserInformation(getToken.data.data));
     }
 
     if (getToken.data.success === false) {

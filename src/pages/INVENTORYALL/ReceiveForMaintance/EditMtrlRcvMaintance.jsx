@@ -90,7 +90,7 @@ const EditMtrlRcvMaintance = () => {
     };
 
     const fetchAllStoreList = () => {
-        Post('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
+        Post('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
             .then((res) => {
                 // console.log("res", res)
                 setAllStoreList(res.data.data)
@@ -99,7 +99,7 @@ const EditMtrlRcvMaintance = () => {
 
     const fetchTransactionLitem = () => {
         const data = { data: state.id }
-        Post('/api/InvTransaction/GetTransactionByID', data)
+        Post('/api/v1/InvTransaction/GetTransactionByID', data)
             .then((res) => {
                 // console.log("res", res)
                 setMaterialComponent(res?.data?.data[0]?.invTransactionDet?.reverse())
@@ -111,7 +111,7 @@ const EditMtrlRcvMaintance = () => {
     // console.log(tranHeaderData)
 
     const fetchPartner = () => {
-        Post('/api/PartnerManagement/GetAllPartner', { data: 0 })
+        Post('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
             .then((res) => {
                 // console.log("res", res)
                 setAllPartner(res.data.data)
@@ -121,7 +121,7 @@ const EditMtrlRcvMaintance = () => {
 
     // new code for search item list for purchase requisition
     const fetchProduct = () => {
-        Post('/api/Product/GetAllItemSearch')
+        Post('/api/v1/Product/GetAllItemSearch')
             .then((res) => {
                 if (res.data.success === true) {
                     setProdutDate(res.data.data)
@@ -323,7 +323,7 @@ const EditMtrlRcvMaintance = () => {
 
         // console.log(data)
 
-        Post('/api/InvTransaction/UpdateInvTransaction', data)
+        Post('/api/v1/InvTransaction/UpdateInvTransaction', data)
             .then(res => {
 
                 if (res.data.success = true) {

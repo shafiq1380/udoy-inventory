@@ -17,7 +17,7 @@ const ProductCategorySetup = () => {
 
     const getProductCtg = async () => {
         try {
-            await Post('/api/Product/GetAllItemCategory')
+            await Post('/api/v1/Product/GetAllItemCategory')
                 .then(res => setProductCtg(res.data.data))
         } catch (error) {
 
@@ -106,7 +106,7 @@ const ProductCategorySetup = () => {
                                 <CardBody>
                                     <TableContainer
                                         columns={columns}
-                                        data={productCtg?.reverse()}
+                                        data={productCtg?.reverse() || []}
                                         isGlobalFilter={true}
                                         isAddUserList={true}
                                         onClickBtn={handleShowModal}

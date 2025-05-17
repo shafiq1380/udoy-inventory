@@ -25,7 +25,7 @@ const AllEmployeeList = () => {
     const [userInfo, setUserInfo] = useState({});
 
     const getAllEmployee = () => {
-        Post('/api/EmployeeManagement/GetAllEmployee')
+        Post('/api/v1/EmployeeManagement/GetAllEmployee')
             .then((res) => {
                 if (res.data.data !== null) {
                     setAllEmployee(res.data.data)

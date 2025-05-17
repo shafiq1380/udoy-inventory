@@ -98,7 +98,7 @@ const VouchersTpeSetup = () => {
             data: 0
         }
         try {
-            await Post('/api/VoucherType/GetAllVoucherTypeSetup', data)
+            await Post('/api/v1/VoucherType/GetAllVoucherTypeSetup', data)
                 .then(res => setVoucherType(res.data.data))
         } catch (error) {
             console.log(error)

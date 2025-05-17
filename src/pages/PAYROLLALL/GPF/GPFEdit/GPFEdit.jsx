@@ -42,7 +42,7 @@ const GPFEdit = () => {
     const { pfDataUpdateLists, pfDetailsById } = useSelector(state => state.pfDetailsByIdReducer);
 
     const transactionTypeList = async () => {
-        const data = await Post('/api/ProvidentFund/GetGPFTransactionTypeList', {})
+        const data = await Post('/api/v1/ProvidentFund/GetGPFTransactionTypeList', {})
             .then(res =>
                 setTransTypes(res.data.data.reverse())
             );
@@ -166,7 +166,7 @@ const GPFEdit = () => {
         };
         // console.log("data --------->>>>>>>", data)
         try {
-            Post('/api/ProvidentFund/GPFDataUpdate', data)
+            Post('/api/v1/ProvidentFund/GPFDataUpdate', data)
                 .then((res) => {
                     if (res.data.success) {
                         toast.success("Allowance updated successfully.", toastOptions);

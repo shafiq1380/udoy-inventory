@@ -114,7 +114,7 @@ const PayCodeSetup = () => {
 
     const getPayCode = async () => {
         try {
-            await Post('/api/Payroll/GetSalaryForCodeList')
+            await Post('/api/v1/Payroll/GetSalaryForCodeList')
                 .then(res => {
                     if (res.data.success === true) {
                         setPayCode(res.data.data?.reverse())

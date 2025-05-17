@@ -157,7 +157,7 @@ const EditFestivalBonus = () => {
         // console.log("data", data)
 
         try {
-            Post('/api/Payroll/AllowanceDataUpdate', data)
+            Post('/api/v1/Payroll/AllowanceDataUpdate', data)
                 .then((res) => {
                     if (res.data.success !== false) {
                         toast.success("Allowance updated successfully.", toastOptions);

@@ -24,7 +24,7 @@ const PayRollList = () => {
 
 
     const getAllEmployee = () => {
-        Post('/api/Payroll/GetAllEmployeePaySetup')
+        Post('/api/v1/Payroll/GetAllEmployeePaySetup')
             .then(res => {
                 res.data.data
                 setPayrollList(res.data.data);
@@ -47,7 +47,7 @@ const PayRollList = () => {
     //download the excel file
     const handleDownload = () => {
         try {
-            Post('/api/Payroll/GetAllEmployeePaySetupDetail')
+            Post('/api/v1/Payroll/GetAllEmployeePaySetupDetail')
                 .then(res => {
                     // console.log(res.data)
                     if (res.status === 200) {

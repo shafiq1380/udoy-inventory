@@ -338,9 +338,9 @@ const authProtectedRoutes = [
   { path: '/inventoryiteminput/:id', component: <AddInvenItem /> },
   { path: '/group-setup', component: <GroupSetup /> },
 
-  { path: '/cgi-dashboard', component: <CGIDashboard /> },
-  { path: '/godown/:id', component: <GDIDetails /> },
-  { path: '/cgi-management', component: <CGIManagement /> },
+  // { path: '/cgi-dashboard', component: <CGIDashboard /> },
+  // { path: '/godown/:id', component: <GDIDetails /> },
+  // { path: '/cgi-management', component: <CGIManagement /> },
 
   { path: '/subgroup', component: <Subgroup /> },
   { path: '/store-list', component: <StoreList /> },

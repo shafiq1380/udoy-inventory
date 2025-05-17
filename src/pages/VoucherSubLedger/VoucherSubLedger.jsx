@@ -63,7 +63,7 @@ const VoucherSubLedger = () => {
     //getting all account
     const getCoaAccount = () => {
         try {
-            Post('/api/CoaSetup/GetAllCoaAccountWithAnal')
+            Post('/api/v1/CoaSetup/GetAllCoaAccountWithAnal')
                 .then(res => {
                     setOptions(res.data.data)
                 })
@@ -77,7 +77,7 @@ const VoucherSubLedger = () => {
     const getAnalysisTypeByCoaID = () => {
         const data = { data: coaAccount?.value }
         try {
-            Post('/api/CoaSetup/GetAnalysisTypeByCoaID', data)
+            Post('/api/v1/CoaSetup/GetAnalysisTypeByCoaID', data)
                 .then(res => {
                     const updateData = [...res.data.data, { analysisTypeID: '', analysisTypeName: 'All' }]
                     setAnalysisType(updateData)
@@ -92,7 +92,7 @@ const VoucherSubLedger = () => {
     const getAnalysisCode = () => {
         const data = { data: selectAnlType?.value }
         try {
-            Post('/api/CoaSetup/GetAllAnalysisCodeByType', data)
+            Post('/api/v1/CoaSetup/GetAllAnalysisCodeByType', data)
                 .then(res => {
                     const updateData = [...res.data.data, { id: '', analysisName: 'All' }]
                     setAnalysisCode(updateData)

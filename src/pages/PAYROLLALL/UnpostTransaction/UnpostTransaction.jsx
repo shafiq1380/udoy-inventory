@@ -50,7 +50,7 @@ const UnpostTransaction = () => {
 
         if (unpostSelect) {
             try {
-                const response = await Post('/api/Payroll/GetTransactionListforUnpost', data);
+                const response = await Post('/api/v1/Payroll/GetTransactionListforUnpost', data);
 
                 if (response.data.success) {
                     const transformedArray = Object.keys(response.data.data).map(key => {
@@ -73,7 +73,7 @@ const UnpostTransaction = () => {
     const unpostTransactionTypes = async () => {
         setLoading(true);
         try {
-            const response = await Post('/api/Payroll/GetTransactionTypesforUnpost');
+            const response = await Post('/api/v1/Payroll/GetTransactionTypesforUnpost');
             if (response.data.success) {
                 const options = Object.entries(response?.data?.data).map(([key, value]) => ({
                     value: key,
@@ -134,7 +134,7 @@ const UnpostTransaction = () => {
         // console.log(" data ----------->>> ", data);
 
         try {
-            Post('/api/Payroll/TransactionUnpost', data)
+            Post('/api/v1/Payroll/TransactionUnpost', data)
                 .then((res) => {
                     // console.log("res", res)
                     if (res.data.success === true) {

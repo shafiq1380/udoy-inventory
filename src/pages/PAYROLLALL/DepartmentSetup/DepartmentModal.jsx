@@ -38,7 +38,7 @@ const DepartmentModal = ({ show, handleModal, isEdit, updateData }) => {
         };
 
         try {
-            const response = await Post('/api/EmployeeManagement/UpdateDepartment', data)
+            const response = await Post('/api/v1/EmployeeManagement/UpdateDepartment', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)
@@ -72,7 +72,7 @@ const DepartmentModal = ({ show, handleModal, isEdit, updateData }) => {
         };
 
         try {
-            const response = await Post('/api/EmployeeManagement/InsertDepartment', data)
+            const response = await Post('/api/v1/EmployeeManagement/InsertDepartment', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)

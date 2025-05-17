@@ -41,7 +41,7 @@ const COACfrmModal = ({ show, handleClose, status, coa, analId }) => {
         // console.log("data", data);
 
         if (status === 0) {
-            Post('/api/CoaSetup/CoaImportAdd', data)
+            Post('/api/v1/CoaSetup/CoaImportAdd', data)
                 .then(res => {
                     // console.log("res CoaImportAdd ------->>> ", res)
                     if (res.data.success === true) {
@@ -56,7 +56,7 @@ const COACfrmModal = ({ show, handleClose, status, coa, analId }) => {
                     }
                 })
         } else if (status === 1) {
-            Post('/api/CoaSetup/CoaImportDelete', data)
+            Post('/api/v1/CoaSetup/CoaImportDelete', data)
                 .then(res => {
                     // console.log("res CoaImportDelete ------->>> ", res)
                     if (res.data.success === true) {

@@ -106,7 +106,7 @@ const UsersNodeSetup = () => {
             data: 0
         }
         try {
-            await Post('/api/UserManagement/GetAllNodeList', data)
+            await Post('/api/v1/UserManagement/GetAllNodeList', data)
                 .then(res => setNodeList(res.data.data))
         } catch (error) {
             console.log(error)

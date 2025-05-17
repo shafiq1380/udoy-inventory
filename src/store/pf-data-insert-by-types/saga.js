@@ -10,7 +10,7 @@ function* getPFDataInsertByType(type) {
     }
     // console.log("getPFDataInsertByType data ----------->>> ", data);
     try {
-        const response = yield Post('/api/ProvidentFund/GetGPFDataforInsertByType', data)
+        const response = yield Post('/api/v1/ProvidentFund/GetGPFDataforInsertByType', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(getPFDataInsertByTypeSuccess(response.data.data));
     } catch (error) {

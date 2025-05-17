@@ -7,7 +7,7 @@ import axios from 'axios';
 // Replace 'fetchUsersApi' with your actual API call function
 function* fetchAllInvenList() {
     try {
-        const response = yield Post('/api/Product/GetAllItemList', null,)
+        const response = yield Post('/api/v1/Product/GetAllItemList', null)
         yield put(fetchAllItemListSuccess(response.data.data));
     } catch (error) {
         // yield put(fetchUsersFailure(error));
@@ -16,7 +16,7 @@ function* fetchAllInvenList() {
 
 function* fetchAllInvenGroup() {
     try {
-        const response = yield Post('/api/Product/GetAllItemGroup', null,)
+        const response = yield Post('/api/v1/Product/GetAllItemGroup', null)
         yield put(fetchAllGroupSuccess(response.data.data));
     } catch (error) {
         // yield put(fetchUsersFailure(error));
@@ -28,7 +28,7 @@ function* fetchSubGroup(value) {
         "data": value.payload
     }
     try {
-        const response = yield Post('/api/Product/GetItemSubGroupByGroupID', data,)
+        const response = yield Post('/api/v1/Product/GetItemSubGroupByGroupID', data)
         yield put(fetchSubGroupSuccess(response.data.data));
 
     } catch (error) {
@@ -38,8 +38,8 @@ function* fetchSubGroup(value) {
 
 function* fetchCategory() {
     try {
-        // const response = yield axios.post('https://smartdemo.udoyadn.com/api/Product/GetAllItemCategory', null, { headers: { 'cCode': 'DEV' } })
-        const response = yield Post('/api/Product/GetAllItemCategory', null)
+        // const response = yield axios.post('https://smartdemo.udoyadn.com/api/v1/Product/GetAllItemCategory', null, { headers: { 'cCode': 'DEV' } })
+        const response = yield Post('/api/v1/Product/GetAllItemCategory', null)
         yield put(fetchCategorySuccess(response.data.data));
 
     } catch (error) {
@@ -50,7 +50,7 @@ function* fetchCategory() {
 
 function* fetchUom() {
     try {
-        const response = yield Post('/api/Product/GetAllItemUom', null)
+        const response = yield Post('/api/v1/Product/GetAllItemUom', null)
         yield put(fetchUomSuccess(response.data.data));
 
     } catch (error) {

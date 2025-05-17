@@ -80,11 +80,11 @@ const EditTransactionPage = () => {
     const [showSearchModal, setShowSearchModal] = useState(false)
     const [indext, setIndext] = useState(null)
 
-    const { data: allStoreList = [], fetchError } = useFetchData('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
-    const { data: productData = [] } = useFetchData('/api/Product/GetAllItemSearch')
+    const { data: allStoreList = [], fetchError } = useFetchData('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
+    const { data: productData = [] } = useFetchData('/api/v1/Product/GetAllItemSearch')
 
-    const { data: allPartnerList = [] } = useFetchData('/api/PartnerManagement/GetAllPartner', { data: 0 })
-    const { data: allItemList = [] } = useFetchData('/api/Product/GetAllItemList')
+    const { data: allPartnerList = [] } = useFetchData('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
+    const { data: allItemList = [] } = useFetchData('/api/v1/Product/GetAllItemList')
 
     // console.log(allStoreList)
 
@@ -102,7 +102,7 @@ const EditTransactionPage = () => {
 
     const fetchTransactionLitem = () => {
         const data = { data: state.id }
-        Post('/api/InvTransaction/GetTransactionByID', data)
+        Post('/api/v1/InvTransaction/GetTransactionByID', data)
             .then((res) => {
                 // console.log("res", res.data.data[0]?.invTransactionDet.reverse())
                 setMaterialComponent(res?.data?.data[0]?.invTransactionDet?.reverse())
@@ -300,7 +300,7 @@ const EditTransactionPage = () => {
         // setselectedStoreValues([{ label: '', value: '' }])
         // setSelectedIndex(null)
 
-        Post('/api/InvTransaction/UpdateInvTransaction', data)
+        Post('/api/v1/InvTransaction/UpdateInvTransaction', data)
             .then(res => {
                 if (res.data.success = true) {
                     // console.log(res.data)

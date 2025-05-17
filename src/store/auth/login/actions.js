@@ -5,6 +5,7 @@ import {
   LOGOUT_USER_SUCCESS,
   API_ERROR,
   SOCIAL_LOGIN,
+  SET_USER_INFORMATION
 } from "./actionTypes"
 
 
@@ -51,3 +52,10 @@ export const socialLogin = (data, history, type) => {
   }
 }
 
+export const setUserInformation = user => {
+  console.log("setUserInformation action", user);
+  return {
+    type: SET_USER_INFORMATION,
+    payload: user,
+  }
+}

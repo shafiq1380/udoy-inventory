@@ -58,7 +58,7 @@ const CPFDetails = () => {
         };
         // console.log("data", data)
         try {
-            const res = await Post('/api/Payroll/PostPfData', data);
+            const res = await Post('/api/v1/Payroll/PostPfData', data);
             if (res.data.success) {
                 toast.success('Allowance Posted Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);
@@ -88,7 +88,7 @@ const CPFDetails = () => {
         };
 
         try {
-            const res = await Post('/api/Payroll/RemovePfData', data);
+            const res = await Post('/api/v1/Payroll/RemovePfData', data);
             if (res.data.success) {
                 toast.success('Allowance Un-Posted Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);
@@ -110,7 +110,7 @@ const CPFDetails = () => {
         };
 
         try {
-            const res = await Post('/api/Payroll/PfVoucherCreate', data);
+            const res = await Post('/api/v1/Payroll/PfVoucherCreate', data);
             if (res.data.success) {
                 toast.success('Allowance Voucher Created Successfully', toastOptions);
                 setTimeout(() => navigate(-1), 1000);
@@ -131,7 +131,7 @@ const CPFDetails = () => {
     const exportToExcelDataOnly = () => {
         const data = { data: state?.id };
         try {
-            Post(`/api/Payroll/GetPfTransactionTable`, data)
+            Post(`/api/v1/Payroll/GetPfTransactionTable`, data)
                 .then(res => {
                     // console.log(res.data)
                     if (res.status === 200) {

@@ -22,7 +22,7 @@ function* fetchUsersSaga(value) {
     }
     // console.log("data -------------", data)
     try {
-        const response = yield Post('/api/UserManagement/GetAllLoginInformation', data);
+        const response = yield Post('/api/v1/UserManagement/GetAllLoginInformation', data);
         // console.log("response  ---------->>>>>>> ", response);
         yield put(fetchUsersSuccess(response.data.data));
     } catch (error) {
@@ -36,7 +36,7 @@ function* updateUser(user) {
     }
 
     try {
-        const response = yield Post('/api/UserManagement/UpdateLoginInformation', data);
+        const response = yield Post('/api/v1/UserManagement/UpdateLoginInformation', data);
         // console.log("response  ---------->>>>>>> ", response);
         // yield put(fetchUsersSuccess(response.data.data));
     } catch (error) {
@@ -50,7 +50,7 @@ function* addUser(user) {
         data: user.payload
     }
     try {
-        const response = yield Post('/api/UserManagement/AddLoginInformation', data);
+        const response = yield Post('/api/v1/UserManagement/AddLoginInformation', data);
         if (response.data.success === false) {
             // console.log(response.data.errorMessage)
             yield put(addFailer(response.data.errorMessage));
@@ -66,7 +66,7 @@ function* addUser(user) {
 function* addUserRole(userRole) {
     const data = userRole.payload
     try {
-        const response = yield Post('/api/UserManagement/UpdateRoleListByUser', data);
+        const response = yield Post('/api/v1/UserManagement/UpdateRoleListByUser', data);
         if (response.data.success === false) {
             // console.log(response.data.errorMessage)
             yield put(addFailer(response.data.errorMessage));
@@ -81,7 +81,7 @@ function* addUserRole(userRole) {
 function* updatePassword(password) {
     const data = password.payload
     try {
-        const response = yield Post('/api/UserManagement/UpdatePasswordByAdmin', data);
+        const response = yield Post('/api/v1/UserManagement/UpdatePasswordByAdmin', data);
         if (response.data.success === false) {
             // console.log(response.data.errorMessage)
             yield put(addFailer(response.data.errorMessage));
@@ -98,7 +98,7 @@ function* uploadPhoto(img) {
     // console.log('User ID', file.get('UserID'))
     // console.log('User Photo ', file.get('UserPhoto'))
     try {
-        const response = yield FilePost('/api/UserManagement/UpdateLoginPhoto', file);
+        const response = yield FilePost('/api/v1/UserManagement/UpdateLoginPhoto', file);
         // console.log(response)
         if (response.data.success === false) {
             // console.log(response.data.errorMessage)
@@ -114,7 +114,7 @@ function* uploadPhoto(img) {
 function* updateUserStatus(data) {
     const statusData = data.payload
     try {
-        const response = yield Post('/api/UserManagement/UpdateLoginStatus', statusData);
+        const response = yield Post('/api/v1/UserManagement/UpdateLoginStatus', statusData);
         if (response.data.success === false) {
             yield put(addFailer(response.data.errorMessage));
         } else {

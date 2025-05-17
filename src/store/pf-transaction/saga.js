@@ -12,7 +12,7 @@ function* getPFTransactionByType(type) {
     // console.log("getPFTransactionByType data ----------->>> ", data);
 
     try {
-        const response = yield Post('/api/ProvidentFund/GetGPFTransactionList', data)
+        const response = yield Post('/api/v1/ProvidentFund/GetGPFTransactionList', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(getPFTransactionByTypeSuccess(response.data.data.reverse()));
     } catch (error) {

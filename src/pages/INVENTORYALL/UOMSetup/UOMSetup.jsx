@@ -18,7 +18,7 @@ const UOMSetup = () => {
 
     const getAllUom = async () => {
         try {
-            await Post('/api/Product/GetAllItemUom')
+            await Post('/api/v1/Product/GetAllItemUom')
                 .then(res => setUomList(res.data.data))
         } catch (error) {
 
@@ -111,7 +111,7 @@ const UOMSetup = () => {
                                 <CardBody>
                                     <TableContainer
                                         columns={columns}
-                                        data={uomList?.reverse()}
+                                        data={uomList?.reverse() || []}
                                         isGlobalFilter={true}
                                         isAddUserList={true}
                                         onClickBtn={handleShowModal}

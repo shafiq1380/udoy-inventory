@@ -15,7 +15,7 @@ const StorePermission = () => {
     const [filterText, setFilterText] = useState('')
 
     const fetchAllStoreList = () => {
-        Post('/api/Product/GetAllStore')
+        Post('/api/v1/Product/GetAllStore')
             .then((res) => {
                 // console.log("res", res)
                 setAllStoreList(res.data.data)
@@ -23,7 +23,7 @@ const StorePermission = () => {
     };
     const getUserList = () => {
         setLoading(true)
-        Post('/api/InvTransaction/GetStorePermissionList')
+        Post('/api/v1/InvTransaction/GetStorePermissionList')
             .then((res) => {
                 // console.log("res", res)
                 setLoading(false)
@@ -32,7 +32,7 @@ const StorePermission = () => {
     };
 
     const addStoresToUsers = () => {
-        return userList.map(user => {
+        return userList && userList.map(user => {
             // Add a new property 'stores' to each user
             return {
                 ...user,

@@ -45,7 +45,7 @@ const EmployeePayrollReport = () => {
 
     const getDepartment = () => {
         try {
-            Post('/api/EmployeeManagement/GetAllDepartment')
+            Post('/api/v1/EmployeeManagement/GetAllDepartment')
                 .then(res => setDepartment(res.data.data))
         } catch (error) {
 
@@ -53,7 +53,7 @@ const EmployeePayrollReport = () => {
     }
     const getEmployee = () => {
         try {
-            Post('/api/EmployeeManagement/GetAllEmployee')
+            Post('/api/v1/EmployeeManagement/GetAllEmployee')
                 .then(res => setEmployee(res.data.data))
         } catch (error) {
 
@@ -61,7 +61,7 @@ const EmployeePayrollReport = () => {
     }
     const getEmployeeType = () => {
         try {
-            Post('/api/Payroll/GetEmployeeType')
+            Post('/api/v1/Payroll/GetEmployeeType')
                 .then(res => setEmployeeType(res.data.data))
         } catch (error) {
 
@@ -181,7 +181,7 @@ const EmployeePayrollReport = () => {
         // console.log(data)
 
         try {
-            Post('/api/Payroll/GetPayrollReportTable', { data })
+            Post('/api/v1/Payroll/GetPayrollReportTable', { data })
                 .then(res => {
                     if (res.status === 200) {
                         res.data.fileContents = res.data.fileContents.replace(/^data:image\/[a-z]+;base64,/, "");
@@ -206,7 +206,7 @@ const EmployeePayrollReport = () => {
         }
         // console.log(data)
         try {
-            await Post('/api/Payroll/GetPayrollReport', { data })
+            await Post('/api/v1/Payroll/GetPayrollReport', { data })
                 .then(res => {
                     // console.log(res.data)
                     if (res.data.length > 0) {
@@ -255,7 +255,7 @@ const EmployeePayrollReport = () => {
 
 
     const getPayroll = async () => {
-        const response = await Post('/api/Payroll/GetSalaryForCodeList', {
+        const response = await Post('/api/v1/Payroll/GetSalaryForCodeList', {
             data: 0,
         }).then(res => setPayroll(res.data.data))
     }

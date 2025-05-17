@@ -24,7 +24,7 @@ const AllowanceBankStatement = () => {
 
     const getAllowanceTitles = () => {
         try {
-            Post('/api/Payroll/GetAllowanceTitleList')
+            Post('/api/v1/Payroll/GetAllowanceTitleList')
                 .then((res) => {
                     if (res.data.success === true) {
                         setAllowanceTitles(res.data.data)
@@ -37,7 +37,7 @@ const AllowanceBankStatement = () => {
 
     const getBankNames = () => {
         try {
-            Post('/api/Payroll/GetBankList')
+            Post('/api/v1/Payroll/GetBankList')
                 .then((res) => {
                     if (res.data.success === true) {
                         setBankNames(res.data.data)
@@ -113,7 +113,7 @@ const AllowanceBankStatement = () => {
             }
         }
         try {
-            Post(`/api/Payroll/GetAllowanceBankStatement`, data)
+            Post(`/api/v1/Payroll/GetAllowanceBankStatement`, data)
                 .then(res => {
                     // console.log(res.data)
                     if (res.status === 200) {

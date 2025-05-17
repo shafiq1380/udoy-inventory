@@ -10,7 +10,7 @@ function* fetchAllowanceDataForInsertByType(type) {
     }
     // console.log("fetchAllowanceListsByType data ----------->>> ", data);
     try {
-        const response = yield Post('/api/Payroll/GetAllowanceDataforInsertByType', data)
+        const response = yield Post('/api/v1/Payroll/GetAllowanceDataforInsertByType', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(fetchAllowanceDataForInsertByTypeSuccess(response.data.data));
     } catch (error) {

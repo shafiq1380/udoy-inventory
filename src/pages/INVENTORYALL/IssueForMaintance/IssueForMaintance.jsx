@@ -95,7 +95,7 @@ const IssueForMaintaince = () => {
 
     //get the store List
     const fetchAllStoreList = () => {
-        Post('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
+        Post('/api/v1/InvTransaction/GetStorePermissionByUser', { data: userID })
             .then((res) => {
                 // console.log("res", res)
                 setAllStoreList(res.data.data)
@@ -103,7 +103,7 @@ const IssueForMaintaince = () => {
     };
 
     const fetchTrnList = () => {
-        Post('/api/InvTransaction/GetTransactionTypeList')
+        Post('/api/v1/InvTransaction/GetTransactionTypeList')
             .then((res) => {
                 // console.log("res", res?.data?.data.find(item => item.trnCode === 'MRR'))
                 const data = res?.data?.data.find(item => item.trnCode === 'MRR')?.trnAddValFormat
@@ -112,19 +112,19 @@ const IssueForMaintaince = () => {
             })
     };
 
-    // const partner = useFetchData('/api/InvTransaction/GetTransactionTypeList')?.datas?.find(item => item.trnCode === 'MRR')?.trnAddValFormat
+    // const partner = useFetchData('/api/v1/InvTransaction/GetTransactionTypeList')?.datas?.find(item => item.trnCode === 'MRR')?.trnAddValFormat
     // console.log(partner)
 
     //get the partner List
     const fetchPartner = () => {
-        Post('/api/PartnerManagement/GetAllPartner', { data: 0 })
+        Post('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
             .then((res) => {
                 // console.log("res", res)
                 setAllPartnerList(res.data.data)
             })
     };
 
-    // const partner = useFetchData('/api/PartnerManagement/GetAllPartner', { data: 0 })
+    // const partner = useFetchData('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
     // console.log(partner.datas)
 
 
@@ -132,7 +132,7 @@ const IssueForMaintaince = () => {
     // new code for search item list for purchase requisition
 
     const fetchProduct = () => {
-        Post('/api/Product/GetAllItemSearch')
+        Post('/api/v1/Product/GetAllItemSearch')
             .then((res) => {
                 if (res.data.success === true) {
                     setProdutDate(res.data.data)
@@ -373,7 +373,7 @@ const IssueForMaintaince = () => {
         }
 
 
-        Post('/api/InvTransaction/InsertInvTransaction', data)
+        Post('/api/v1/InvTransaction/InsertInvTransaction', data)
             .then(res => {
 
                 if (res.data.success = true) {

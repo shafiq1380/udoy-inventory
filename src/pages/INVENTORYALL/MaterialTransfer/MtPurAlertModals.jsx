@@ -58,7 +58,7 @@ const MtPurAlertModals = (
 
     const btnClickApiCall = async (url, data) => {
         setLoading(true)
-        const res = await Post(`/api/InvTransaction/${url}`, { data: data })
+        const res = await Post(`/api/v1/InvTransaction/${url}`, { data: data })
             .then(res => {
                 // console.log(res)
                 if (res.data.success === true) {

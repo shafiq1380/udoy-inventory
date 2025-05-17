@@ -58,7 +58,7 @@ const SaveVoucherTab = () => {
 
     const getVoucherList = () => {
         try {
-            Post('/api/VoucherEntry/GetSavedVoucherList')
+            Post('/api/v1/VoucherEntry/GetSavedVoucherList')
                 .then(res => {
                     // console.log(res.data.data)
                     const data = res.data.data
@@ -98,7 +98,7 @@ const SaveVoucherTab = () => {
             data: id
         }
         try {
-            Post('/api/VoucherEntry/GetVoucherToolTipByID', data)
+            Post('/api/v1/VoucherEntry/GetVoucherToolTipByID', data)
                 .then(res => setTooltipData(res.data.data))
         } catch (error) {
 

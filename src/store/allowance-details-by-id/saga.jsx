@@ -19,7 +19,7 @@ function* fetchAllowanceDetailsById(type) {
     // console.log("fetchAllowanceListsByType data ----------->>> ", data);
 
     try {
-        const response = yield Post('/api/Payroll/GetAllowanceDetailViewByID', data)
+        const response = yield Post('/api/v1/Payroll/GetAllowanceDetailViewByID', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(fetchAllowanceDetailsByIdSuccess(response.data.data));
     } catch (error) {
@@ -39,7 +39,7 @@ function* fetchAllowanceDataForUpdateById(type) {
     // console.log("fetchAllowanceDataForUpdateById data ----------->>> ", data);
 
     try {
-        const response = yield Post('/api/Payroll/GetAllowanceDataforUpdateByID', data)
+        const response = yield Post('/api/v1/Payroll/GetAllowanceDataforUpdateByID', data)
         // console.log("response  ---------->>>>>>> ", response.data.data);
         yield put(fetchAllowanceDataForUpdateByIdSuccess(response.data.data));
     } catch (error) {

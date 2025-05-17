@@ -88,7 +88,7 @@ const TransactionValueUpdate = () => {
         setHasFetched(false);
 
         try {
-            const response = await Post('/api/InvTransaction/GetTransactionByRef', { data: voucherRef.trim() });
+            const response = await Post('/api/v1/InvTransaction/GetTransactionByRef', { data: voucherRef.trim() });
             const data = response?.data?.data ?? [];
             setTranDetailsByRef(data);
             setHasFetched(true);
@@ -147,7 +147,7 @@ const TransactionValueUpdate = () => {
         };
 
         try {
-            const response = await Post('/api/InvTransaction/UpdateTransactionValue', data);
+            const response = await Post('/api/v1/InvTransaction/UpdateTransactionValue', data);
             if (response?.data?.data !== null) {
                 toast.success("Transaction Value Updated Successfully", toastOptions);
                 resetForm();

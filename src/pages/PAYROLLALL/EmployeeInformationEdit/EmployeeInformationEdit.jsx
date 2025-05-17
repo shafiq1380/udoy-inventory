@@ -218,7 +218,7 @@ const EmployeeInformationEdit = () => {
 
     const getAllEmployeeTypes = async () => {
         try {
-            await Post('/api/EmployeeManagement/GetAllEmployeeTypes')
+            await Post('/api/v1/EmployeeManagement/GetAllEmployeeTypes')
                 .then(res => {
                     res.data.data
                     setEmployeeType(res.data.data);
@@ -230,7 +230,7 @@ const EmployeeInformationEdit = () => {
 
     const getAllDepartments = async () => {
         try {
-            await Post('/api/EmployeeManagement/GetAllDepartment')
+            await Post('/api/v1/EmployeeManagement/GetAllDepartment')
                 .then(res => {
                     res.data.data
                     setAllDepartment(res.data.data);
@@ -345,7 +345,7 @@ const EmployeeInformationEdit = () => {
         if (state !== null) {
             // console.log(data)
             try {
-                Post('/api/EmployeeManagement/UpdateEmployee', data)
+                Post('/api/v1/EmployeeManagement/UpdateEmployee', data)
                     .then(res => {
                         // console.log(res)
                         if (res.data.success === true) {
@@ -369,7 +369,7 @@ const EmployeeInformationEdit = () => {
             // console.log("sending data ----->>> ", data2)
 
             try {
-                Post('/api/EmployeeManagement/InsertEmployee', data2)
+                Post('/api/v1/EmployeeManagement/InsertEmployee', data2)
                     .then(res => {
                         if (res.data.success === true) {
                             toast.success("Employee Updated Successfully", toastOptions);

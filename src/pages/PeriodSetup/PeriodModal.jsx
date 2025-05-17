@@ -34,7 +34,7 @@ const PeriodModal = ({ handleModal, show, isEdit, updatePeriodData }) => {
     const handleSubmitButton = async () => {
         setLoading(true)
         try {
-            await Post('/api/VoucherEntry/InsertPeriodList', { data: periodData })
+            await Post('/api/v1/VoucherEntry/InsertPeriodList', { data: periodData })
                 .then(res => {
                     if (res.data.success === true) {
                         handleModal();
@@ -53,7 +53,7 @@ const PeriodModal = ({ handleModal, show, isEdit, updatePeriodData }) => {
         // console.log(periodData)
         setLoading(true)
         try {
-            await Post('/api/VoucherEntry/UpdatePeriod', { data: periodData })
+            await Post('/api/v1/VoucherEntry/UpdatePeriod', { data: periodData })
                 .then(res => {
                     if (res.data.success === true) {
                         handleModal();

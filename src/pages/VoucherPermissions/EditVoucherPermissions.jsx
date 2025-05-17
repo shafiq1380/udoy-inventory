@@ -119,7 +119,7 @@ const EditVoucherPermissions = () => {
 
     const getVoucherPermission = async () => {
         try {
-            await Post('/api/VoucherEntry/GetUserPermissionByID', { data: id })
+            await Post('/api/v1/VoucherEntry/GetUserPermissionByID', { data: id })
                 .then(res => setVoucherPermissionData(res.data.data))
         } catch (error) { console.log(error) }
     }
@@ -128,7 +128,7 @@ const EditVoucherPermissions = () => {
         setLoading(!loading)
         // console.log(voucherPermissionData)
         try {
-            await Post('/api/VoucherEntry/AddUpdateUserPermission', { data: voucherPermissionData })
+            await Post('/api/v1/VoucherEntry/AddUpdateUserPermission', { data: voucherPermissionData })
                 .then(res => {
                     if (res.data.success === true) {
                         history('/voucher-permission')

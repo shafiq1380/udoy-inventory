@@ -87,22 +87,22 @@ const Header = props => {
   const userId = { data: JSON.parse(userID) }
 
 
-  const getUserInformation = () => {
-    try {
-      Post('/api/UserManagement/GetLoginInformationByCode', userId,)
-        .then(res => {
-          // console.log('res', res)
-          dispatch({ type: SET_USER_INFORMATION, payload: res.data.data })
-        }
-        )
-    } catch (error) {
-      console.log('Error ', error)
-    }
-  }
+  // const getUserInformation = () => {
+  //   try {
+  //     Post('/api/v1/UserManagement/GetLoginInformationByCode', userId,)
+  //       .then(res => {
+  //         // console.log('res', res)
+  //         dispatch({ type: SET_USER_INFORMATION, payload: res.data.data })
+  //       }
+  //       )
+  //   } catch (error) {
+  //     console.log('Error ', error)
+  //   }
+  // }
 
-  useEffect(() => {
-    getUserInformation()
-  }, [])
+  // useEffect(() => {
+  //   getUserInformation()
+  // }, [])
 
 
   return (

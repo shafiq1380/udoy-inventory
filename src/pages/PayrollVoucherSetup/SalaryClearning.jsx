@@ -36,7 +36,7 @@ const SalaryClearning = ({ handleModal, getError, data }) => {
         // console.log({ data })
 
         try {
-            await Post('/api/Payroll/UpdateSalaryVoucherSetup', { data })
+            await Post('/api/v1/Payroll/UpdateSalaryVoucherSetup', { data })
                 .then(res => {
                     if (res.data.success === true) {
                         setLoading(false);

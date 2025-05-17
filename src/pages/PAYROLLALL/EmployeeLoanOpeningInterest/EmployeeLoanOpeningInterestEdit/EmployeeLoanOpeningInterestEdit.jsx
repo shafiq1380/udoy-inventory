@@ -150,7 +150,7 @@ const EmployeeLoanOpeningInterestEdit = () => {
         };
         // console.log("data --------->>>>>>>", data)
         try {
-            Post('/api/Payroll/PfDataUpdate', data)
+            Post('/api/v1/Payroll/PfDataUpdate', data)
                 .then((res) => {
                     if (res.data.success) {
                         toast.success("Allowance updated successfully.", toastOptions);

@@ -146,7 +146,7 @@ const InventoryItemList = () => {
                                     <CardBody>
                                         <TableContainer
                                             columns={columns}
-                                            data={allItemList}
+                                            data={allItemList || []}
                                             isGlobalFilter={true}
                                             isAddUserList={true}
                                             onClickBtn={handleClick}

@@ -17,7 +17,7 @@ const ProductCtgModal = ({ show, handleModal, isEdit, updateData }) => {
     const updateProductCtg = async () => {
         const data = { data: productCtgData }
         try {
-            const response = await Post('/api/Product/UpdateItemCategory', data)
+            const response = await Post('/api/v1/Product/UpdateItemCategory', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)
@@ -37,7 +37,7 @@ const ProductCtgModal = ({ show, handleModal, isEdit, updateData }) => {
     const addProductCtg = async () => {
         const data = { data: productCtgData }
         try {
-            const response = await Post('/api/Product/InsertItemCategory', data)
+            const response = await Post('/api/v1/Product/InsertItemCategory', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)

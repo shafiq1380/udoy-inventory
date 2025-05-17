@@ -143,8 +143,8 @@ const CGIManagement = () => {
 
         try {
             const [storeResponse, partnerResponse] = await Promise.all([
-                Post('/api/Product/GetAllStore'),
-                Post('/api/PartnerManagement/GetAllPartner', data)
+                Post('/api/v1/Product/GetAllStore'),
+                Post('/api/v1/PartnerManagement/GetAllPartner', data)
             ]);
 
             setAllStoreList(storeResponse.data.data);
@@ -158,7 +158,7 @@ const CGIManagement = () => {
     const getAllRentData = async () => {
         const data = { data: 0 };
         try {
-            const response = await Post('/api/ChemicalGdown/GetAllRentData', data);
+            const response = await Post('/api/v1/ChemicalGdown/GetAllRentData', data);
             setAllRentData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);

@@ -13,7 +13,7 @@ import { ADD_REVERSE_VOUCHER_ENTRY, ADD_UNPOST_VOUCHER_ENTRY } from './actionTyp
 function* reverseVoucherEntry(data) {
     // console.log("Data from saga reverse --------->>>>", data.payload);
     try {
-        const reverseVoucher = yield Post('/api/VoucherEntry/ReverseVoucher', data.payload)
+        const reverseVoucher = yield Post('/api/v1/VoucherEntry/ReverseVoucher', data.payload)
         // console.log("reverseVoucher response ------->>>>", reverseVoucher);
         if (reverseVoucher.data.success === false) {
             yield put(addReverseVoucherEntryFail(reverseVoucher.data.errorMessage))
@@ -29,7 +29,7 @@ function* reverseVoucherEntry(data) {
 function* unpostVoucherEntry(data) {
     // console.log("Data from saga unpost --------->>>>", data.payload);
     try {
-        const unpostVoucher = yield Post('/api/VoucherEntry/UnpostVoucher', data.payload)
+        const unpostVoucher = yield Post('/api/v1/VoucherEntry/UnpostVoucher', data.payload)
         console.log("unpostVoucher response ------->>>>", unpostVoucher);
         if (unpostVoucher.data.success === false) {
             yield put(addUnpostVoucherEntryFail(unpostVoucher.data.errorMessage))

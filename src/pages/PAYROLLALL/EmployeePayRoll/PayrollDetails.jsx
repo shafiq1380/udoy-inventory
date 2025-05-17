@@ -62,7 +62,7 @@ const PayrollDetails = () => {
     const getData = () => {
         const requestData = { payrollID: id, userID: userId };
         try {
-            Post('/api/Payroll/GetPayrollByID', { data: requestData })
+            Post('/api/v1/Payroll/GetPayrollByID', { data: requestData })
                 .then(res => {
                     if (res.data.success === true) {
                         setOriginalData(res?.data?.data);
@@ -114,7 +114,7 @@ const PayrollDetails = () => {
     const handleDownload = () => {
         const data = { payrollID: id, userID: userId }
         try {
-            Post('/api/Payroll/GetPayrollByIDTable', { data: data })
+            Post('/api/v1/Payroll/GetPayrollByIDTable', { data: data })
                 .then(res => {
                     if (res.status === 200) {
                         res.data.fileContents = res.data.fileContents.replace(/^data:image\/[a-z]+;base64,/, "");
@@ -135,7 +135,7 @@ const PayrollDetails = () => {
     const handleUpdate = async () => {
         const data = { payrollID: +id, userID: userId }
         try {
-            await Post('/api/Payroll/PayrollUpdate', { data: data })
+            await Post('/api/v1/Payroll/PayrollUpdate', { data: data })
                 .then(res => {
                     if (res.data.success === false) {
                         setError({ message: res.data.errorMessage, color: 'danger' })
@@ -152,7 +152,7 @@ const PayrollDetails = () => {
     const handlePost = async () => {
         const data = { payrollID: +id, userID: userId }
         try {
-            await Post('/api/Payroll/PayrollPost', { data: data })
+            await Post('/api/v1/Payroll/PayrollPost', { data: data })
                 .then(res => {
                     // console.log(res.data)
                     if (res.data.success === false) {
@@ -170,7 +170,7 @@ const PayrollDetails = () => {
     const handlePostOnly = async () => {
         const data = { payrollID: +id, userID: userId }
         try {
-            await Post('/api/Payroll/PayrollPostOnly', { data: data })
+            await Post('/api/v1/Payroll/PayrollPostOnly', { data: data })
                 .then(res => {
                     // console.log(res.data)
                     if (res.data.success === false) {
@@ -189,7 +189,7 @@ const PayrollDetails = () => {
         // console.log(originalData.payrollHdr.salDate)
         const data = { payrollID: id, payrollDate: originalData.payrollHdr.salDate, userID: userId }
         try {
-            await Post('/api/Payroll/PayrollCreateVoucher', { data: data })
+            await Post('/api/v1Payroll/PayrollCreateVoucher', { data: data })
                 .then(res => {
                     if (res.data.success === false) {
                         setError({ message: res.data.errorMessage, color: 'danger' })

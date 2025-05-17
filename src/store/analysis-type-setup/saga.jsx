@@ -15,7 +15,7 @@ function* fetchAnaltypeSaga() {
 
 
     try {
-        const response = yield Post('/api/CoaSetup/GetAllAnalysisType');
+        const response = yield Post('/api/v1/CoaSetup/GetAllAnalysisType');
         // console.log("response  ---------->>>>>>> ", response);
         if (response.data.success === true) {
             yield put(fetchAnalTypeSuccess(response.data.data));
@@ -34,7 +34,7 @@ function* updateAnalType(anals) {
     }
 
     try {
-        const response = yield Post('/api/CoaSetup/UpdateAnalysisType', data);
+        const response = yield Post('/api/v1/dCoaSetup/UpdateAnalysisType', data);
         if (response.data.success === true) {
             yield put(updateAnalTypeSuccess());
         } else if (response.data.success === false) {
@@ -52,7 +52,7 @@ function* addAnalType(anals) {
         data: anals.payload
     }
     try {
-        const response = yield Post('/api/CoaSetup/AddAnalysisType', data);
+        const response = yield Post('/api/v1/CoaSetup/AddAnalysisType', data);
         if (response.data.success === true) {
             yield put(updateAnalTypeSuccess());
         } else if (response.data.success === false) {

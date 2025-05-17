@@ -12,7 +12,7 @@ import { ADD_BANK_INFORMATION, DELETE_BANK_INFORMATION, GET_ALL_BANK_INFORMATION
 function* addBankInfromation(data) {
     console.log('Bank Saga File', data.payload)
     try {
-        const bankInformation = yield Post('/api/BankInfo/AddBankInformation', data.payload)
+        const bankInformation = yield Post('/api/v1/dBankInfo/AddBankInformation', data.payload)
         if (bankInformation?.data.success === false) {
             yield put(addBankInformationFail(bankInformation.data.errorMessage))
         } else {
@@ -27,7 +27,7 @@ function* addBankInfromation(data) {
 function* getBankInformation(data) {
 
     try {
-        const bankInformation = yield Post('/api/BankInfo/GetAllBankInformation', data.payload)
+        const bankInformation = yield Post('/api/v1/BankInfo/GetAllBankInformation', data.payload)
         if (bankInformation?.data.success === false) {
             yield put(addBankInformationFail(bankInformation.data.errorMessage))
         } else {
@@ -41,7 +41,7 @@ function* getBankInformation(data) {
 
 function* updateBankInformation(data) {
     try {
-        const bankInformation = yield Post('/api/BankInfo/UpdateBankInformationByID', data.payload)
+        const bankInformation = yield Post('/api/v1/BankInfo/UpdateBankInformationByID', data.payload)
         console.log(bankInformation)
         // if (bankInformation?.data.success === false) {
         //     yield put(bankInformation(branchInformation.data.errorMessage))
@@ -56,7 +56,7 @@ function* updateBankInformation(data) {
 
 function* deleteBankInformation(data) {
     try {
-        const bankInformation = yield Post('/api/BankInfo/DeleteBankInformationByID', data.payload)
+        const bankInformation = yield Post('/api/v1/BankInfo/DeleteBankInformationByID', data.payload)
         console.log(bankInformation.data.data)
         // if (bankInformation) {
         //     yield put(deleteBankInformationSuccess())

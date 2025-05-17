@@ -37,7 +37,7 @@ const UsersAddEditModal = ({ handleModal, show, isEdit, updateNodeData }) => {
     const handleCreateNode = async () => {
         setLoading(true)
         try {
-            await Post('/api/UserManagement/InsertNodeList', { data: nodeData })
+            await Post('/api/v1/UserManagement/InsertNodeList', { data: nodeData })
                 .then(res => {
                     if (res.data.success === true) {
                         handleModal()
@@ -55,7 +55,7 @@ const UsersAddEditModal = ({ handleModal, show, isEdit, updateNodeData }) => {
     const updateNodeNode = async () => {
         setLoading(true)
         try {
-            await Post('/api/UserManagement/UpdateNodeList', { data: nodeData })
+            await Post('/api/v1/UserManagement/UpdateNodeList', { data: nodeData })
                 .then(res => {
                     if (res.data.success === true) {
                         handleModal()

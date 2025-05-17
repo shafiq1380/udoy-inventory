@@ -82,7 +82,7 @@ const SavedMaterialAdjustment = ({ activeTab }) => {
                 trnCode2: "ADJ"
             }
         }
-        await Post('/api/InvTransaction/GetAllSavedTransaction', data)
+        await Post('/api/V1/InvTransaction/GetAllSavedTransaction', data)
             .then(res => setTransactionData(res.data.data))
     }
 
@@ -93,7 +93,7 @@ const SavedMaterialAdjustment = ({ activeTab }) => {
             data: id
         }
         try {
-            Post('/api/InvTransaction/GetTransactionToolTipByID', data)
+            Post('/api/v1/InvTransaction/GetTransactionToolTipByID', data)
                 .then(res => setTooltipData(res.data.data))
         } catch (error) {
 

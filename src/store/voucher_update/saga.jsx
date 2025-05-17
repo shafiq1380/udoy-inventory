@@ -8,7 +8,7 @@ import { updateVoucherFail, updateVoucherSuccess } from "./actions";
 function* updateVoucherEntry(data) {
     // console.log("Data from saga --------->>>>", data);
     try {
-        const voucherUpdate = yield Post('/api/VoucherEntry/UpdateVoucher', data.payload)
+        const voucherUpdate = yield Post('/api/v1/VoucherEntry/UpdateVoucher', data.payload)
         // console.log("voucherUpdate ------->>>>", voucherUpdate);
         if (voucherUpdate?.data.success === false) {
             yield put(updateVoucherFail(voucherUpdate.data.errorMessage))

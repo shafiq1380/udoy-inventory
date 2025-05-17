@@ -15,7 +15,7 @@ const StoreItem = ({ storesItems, checkedData, handleChangeTheCheckBox, userData
         setLoading(true)
         const data = { data: { userID: userData?.userID, storeID: id, permission: userData?.storeList.includes(id) ? 0 : 1 } }
         // console.log(data)
-        Post(`/api/InvTransaction/UpdateStorePermissionByUser`, data)
+        Post(`/api/v1/InvTransaction/UpdateStorePermissionByUser`, data)
             .then(res => {
                 // console.log(res.data)
                 if (res.data.success) {

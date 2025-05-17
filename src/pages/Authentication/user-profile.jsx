@@ -36,7 +36,15 @@ import UserProfileImageUpload from "./components/UserProfileImageUploda";
 
 const UserProfile = (props) => {
 
-  const { userID, userPhoto, userName, userEmail, userDesignation, userSection, userDepartment, userMobile } = useSelector(state => state.Login.userInformation)
+  // const { userID, userPhoto, userName, userEmail, userDesignation, userSection, userDepartment, userMobile } = useSelector(state => state.Login.userInformation)
+
+  const userID = JSON.parse(localStorage.getItem('empCode'));
+  const userPhoto = JSON.parse(localStorage.getItem('userPhoto'));
+  const userName = JSON.parse(localStorage.getItem('userName'));
+  const userEmail = JSON.parse(localStorage.getItem('userEmail'));
+  const userDesignation = JSON.parse(localStorage.getItem('userDesignation'));
+  const userDepartment = JSON.parse(localStorage.getItem('userDepartment'));
+  const userMobile = JSON.parse(localStorage.getItem('userMobile'));
 
   //meta title
   // document.title = "Profile | SMART Account System";

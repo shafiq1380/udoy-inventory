@@ -187,27 +187,30 @@ const Login3 = (props) => {
         try {
             const res = await Post('/api/Auth/GetAuthToken', data);
             let token = res.data?.token;
+            // console.log("Login response", res.data.token);
             if (res.status !== 200 || !res.data?.token) {
                 return alert("Invalid username or password");
             }
             if (res.status === 200) {
+                localStorage.setItem('authUser', JSON.stringify(token));
                 const data = {
                     userid: user.userID,
                     password: user.password,
                     token: token
                 }
-                await userLogin(data)
+                userLogin(data)
             }
         } catch (error) {
             console.log("Error in login function", error);
         }
     };
 
-    const userLogin = async (userData) => {
+    const userLogin = (userData) => {
+        // console.log("Login user data", userData);
         try {
             dispatch(loginUser(userData, props.router.navigate));
-            captchaRef.current.reset();
-            setCaptchaVerified(false)
+            // captchaRef.current.reset();
+            // setCaptchaVerified(false)
         } catch (error) {
             console.error("Error in loginUser function", error);
         }

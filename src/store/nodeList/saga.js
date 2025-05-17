@@ -8,18 +8,18 @@ import { getNodeListSuccess } from './actions';
 // Replace 'fetchUsersApi' with your actual API call function
 function* getNodeList(data) {
   // console.log('data', data)
-  try {
-    const response = yield Post('/api/UserManagement/GetNodeListByUser', data.payload);
-    // console.log(response)
-    if (response.data.success === true) {
-      yield put(getNodeListSuccess(response.data.data));
-      localStorage.setItem('nodeList', JSON.stringify(response.data.data));
-      // console.log('Menu', response)
-    }
-    // yield put(fetchUsersSuccess(response.data.data));
-  } catch (error) {
-    yield put(fetchUsersFailure(error));
-  }
+  // try {
+  //   const response = yield Post('/api/UserManagement/GetNodeListByUser', data.payload);
+  //   // console.log(response)
+  //   if (response.data.success === true) {
+  //     yield put(getNodeListSuccess(response.data.data));
+  //     localStorage.setItem('nodeList', JSON.stringify(response.data.data));
+  //     // console.log('Menu', response)
+  //   }
+  //   // yield put(fetchUsersSuccess(response.data.data));
+  // } catch (error) {
+  //   yield put(fetchUsersFailure(error));
+  // }
 }
 
 

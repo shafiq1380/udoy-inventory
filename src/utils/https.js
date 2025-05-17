@@ -10,7 +10,6 @@ export const REPORT_URL1 = "http://localhost:54992";
 const getUserToken = localStorage.getItem('authUser')
 const token = JSON.parse(getUserToken)
 
-
 export const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`,
@@ -44,6 +43,15 @@ export async function Post(apiEndPoint, data) {
 
 
 export async function LoginPost(apiEndPoint, data) {
+
+    const getUserToken = localStorage.getItem('authUser')
+    const token = JSON.parse(getUserToken)
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+    }
+
     return await axios.post(`${BASE_URL}${apiEndPoint}`, data, {
         headers: headers
     });

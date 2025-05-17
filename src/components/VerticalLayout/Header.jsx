@@ -89,7 +89,7 @@ const Header = props => {
 
   // const getUserInformation = () => {
   //   try {
-  //     Post('/api/UserManagement/GetLoginInformationByCode', userId,)
+  //     Post('/api/v1/UserManagement/GetLoginInformationByCode', userId,)
   //       .then(res => {
   //         // console.log('res', res)
   //         dispatch({ type: SET_USER_INFORMATION, payload: res.data.data })

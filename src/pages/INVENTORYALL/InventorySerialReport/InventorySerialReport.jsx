@@ -209,7 +209,7 @@ const InventorySerialReport = () => {
         }
 
         try {
-            const res = await Post('/api/InvTransaction/GetItemStockDetail', data)
+            const res = await Post('/api/v1/InvTransaction/GetItemStockDetail', data)
             // console.log("res", res)
             setGetItemStockDetail(res)
             setShowComponents(true)
@@ -227,7 +227,7 @@ const InventorySerialReport = () => {
         }
 
         try {
-            const res = await Post('/api/InvTransaction/GetItemSerialTrace', data)
+            const res = await Post('/api/v1/InvTransaction/GetItemSerialTrace', data)
             // console.log("res", res)
             setGetSerialStockTrace(res)
             setShowComponents(true)

@@ -17,7 +17,7 @@ const SubgrpModal = ({ handleModal, show, isEdit, selectItem, updateData, }) => 
     const handleSubmitButton = async () => {
         const data = { data: subGroupData }
         try {
-            const response = await Post('/api/Product/InsertSubGroup', data)
+            const response = await Post('/api/v1/Product/InsertSubGroup', data)
                 .then(res => {
                     if (res.data.success === true) {
                         setErronr('')
@@ -39,7 +39,7 @@ const SubgrpModal = ({ handleModal, show, isEdit, selectItem, updateData, }) => 
     const handleUpdateData = async () => {
         const data = { data: subGroupData }
         try {
-            const response = await Post('/api/Product/UpdateSubGroup', data)
+            const response = await Post('/api/v1/Product/UpdateSubGroup', data)
                 .then(res => {
                     if (res.data.success === true) {
                         setErronr('')

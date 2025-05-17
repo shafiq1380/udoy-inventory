@@ -86,7 +86,7 @@ const UserProfile = (props) => {
     console.log(pdata);
 
     try {
-      Post('/api/UserManagement/UpdateLoginPassword', pdata).then((resp) => {
+      Post('/api/v1/UserManagement/UpdateLoginPassword', pdata).then((resp) => {
         // console.log(resp);
         setapirespMsg(resp.data.errorMessage);
         setpasswordError(resp.data.errorMessage);

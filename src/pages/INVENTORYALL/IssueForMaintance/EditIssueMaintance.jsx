@@ -337,7 +337,7 @@ const EditIssueMaintance = () => {
         // setselectedStoreValues([{ label: '', value: '' }])
         // setSelectedIndex(null)
 
-        Post('/api/InvTransaction/UpdateInvTransaction', data)
+        Post('/api/v1/InvTransaction/UpdateInvTransaction', data)
             .then(res => {
                 if (res.data.success = true) {
                     setResponseId(res.data.data)

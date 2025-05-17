@@ -77,7 +77,7 @@ const FileUpload = () => {
         file.append('Data.UserCode', userId)
 
         try {
-            FilePost('/api/DocumentAttachment/DocumentUpload', file)
+            FilePost('/api/v1/DocumentAttachment/DocumentUpload', file)
                 .then(res => {
                     console.log("res --------->>>", res)
                     if (res.status === 200) {
@@ -96,7 +96,7 @@ const FileUpload = () => {
         const data = { data: id }
 
         try {
-            Post('/api/DocumentAttachment/ViewUpload', data)
+            Post('/api/v1/DocumentAttachment/ViewUpload', data)
                 .then(res => {
                     console.log("res --------->>>", res)
                     if (res.status === 200) {
@@ -118,7 +118,7 @@ const FileUpload = () => {
             const data = { data: id }
 
             try {
-                Post('/api/DocumentAttachment/DeleteUpload', data)
+                Post('/api/v1/DocumentAttachment/DeleteUpload', data)
                     .then(res => {
                         console.log("res --------->>>", res)
                         if (res.status === 200) {

@@ -115,7 +115,7 @@ const Navbar = props => {
   //   const data = { data: userID }
 
   //   try {
-  //     const response = Post('/api/UserManagement/GetNodeListByUser', data)
+  //     const response = Post('/api/v1/UserManagement/GetNodeListByUser', data)
   //       .then(res => setNodeList(res.data.data))
   //   } catch (error) {
   //   }

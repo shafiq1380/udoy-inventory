@@ -193,7 +193,7 @@ const AddInvenItem = () => {
         const itemCode = `${invenData.groupID}.${selectVelue.value}.${invenData.itemCode}`;
         const newUpdateData = { ...invenData, ['itemCode']: itemCode }
 
-        const response = await Post('/api/Product/InsertItem', { data: newUpdateData })
+        const response = await Post('/api/v1/Product/InsertItem', { data: newUpdateData })
             .then(res => {
                 if (res.data.success === true) {
                     setLoading(false)
@@ -229,7 +229,7 @@ const AddInvenItem = () => {
             ['convRatio']: invenData.convRatio ? invenData.convRatio : 0
         }
 
-        const response = await Post('/api/Product/UpdateItem', { data: newUpdateData })
+        const response = await Post('/api/v1/Product/UpdateItem', { data: newUpdateData })
             .then(res => {
                 if (res.data.success === true) {
                     setLoading(false)
@@ -270,7 +270,7 @@ const AddInvenItem = () => {
     const getMaxId = async () => {
         if (invenData?.subGroupID) {
             try {
-                const res = await Post('/api/Product/GetNewCodeByID', { data: invenData.subGroupID });
+                const res = await Post('/api/v1/Product/GetNewCodeByID', { data: invenData.subGroupID });
                 // console.log(res.data)
                 setInvenData(prevData => ({
                     ...prevData,
@@ -304,7 +304,7 @@ const AddInvenItem = () => {
     useEffect(() => {
         if (id) {
             setUpdateDataLoading(true)
-            const response = Post('/api/Product/GetItemByID', { data: id }).then((res) => {
+            const response = Post('/api/v1/Product/GetItemByID', { data: id }).then((res) => {
                 // console.log('Success', res.data.data)
 
                 if (res?.data?.success === true) {

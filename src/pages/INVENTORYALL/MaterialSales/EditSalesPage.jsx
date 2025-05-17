@@ -99,7 +99,7 @@ const EditSalesPage = () => {
 
     const fetchTransactionLitem = () => {
         const data = { data: state.id }
-        Post('/api/InvTransaction/GetTransactionByID', data)
+        Post('/api/v1/InvTransaction/GetTransactionByID', data)
             .then((res) => {
                 // console.log("res", res)
                 // setMaterialComponent(res?.data?.data[0]?.invTransactionDet)
@@ -336,7 +336,7 @@ const EditSalesPage = () => {
         // setselectedStoreValues([{ label: '', value: '' }])
         // setSelectedIndex(null)
 
-        Post('/api/InvTransaction/UpdateInvTransaction', data)
+        Post('/api/v1/InvTransaction/UpdateInvTransaction', data)
             .then(res => {
 
                 if (res.data.success = true) {

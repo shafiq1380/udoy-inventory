@@ -31,7 +31,7 @@ const SyncDataModal = ({ show, handleClose, state, updateParentData, setUpdatePa
             data: state.data
         };
 
-        const syncData = await Post('/api/CoaSetup/CoaSyncForEmployee', data)
+        const syncData = await Post('/api/v1/CoaSetup/CoaSyncForEmployee', data)
             .then(res => {
                 if (res.data.success === true) {
                     handleClose()

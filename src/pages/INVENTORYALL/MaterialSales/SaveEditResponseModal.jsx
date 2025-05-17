@@ -50,7 +50,7 @@ const SaveEditResponseModal = ({ show, responseModalClose, success, error, modal
             userId: userID,
             remarks: ""
         }
-        Post('/api/InvTransaction/PostInvTransaction', { data: data })
+        Post('/api/v1/InvTransaction/PostInvTransaction', { data: data })
             .then(res => {
                 setLoading(false)
                 responseModalClose()

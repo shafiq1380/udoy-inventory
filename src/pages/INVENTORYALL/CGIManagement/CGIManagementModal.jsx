@@ -29,7 +29,7 @@ const CGIManagementModal = ({ show, handleModal, allStoreList, allPartner, editB
     const getRentDatbyId = async (id) => {
         const data = { data: id };
         try {
-            const response = await Post('/api/ChemicalGdown/GetRentByID', data);
+            const response = await Post('/api/v1/ChemicalGdown/GetRentByID', data);
             if (response.data.success === true) {
                 setStore({
                     label: response.data.data.storeID + " : " + response.data.data.storeCode,
@@ -54,7 +54,7 @@ const CGIManagementModal = ({ show, handleModal, allStoreList, allPartner, editB
     const updateRentData = async (data) => {
         setLoading(true)
         try {
-            const response = await Post('/api/ChemicalGdown/UpdateRentData', { data: data });
+            const response = await Post('/api/v1/ChemicalGdown/UpdateRentData', { data: data });
             if (response.data.success === true) {
                 setLoading(false)
                 handleCloseTheModal()
@@ -70,7 +70,7 @@ const CGIManagementModal = ({ show, handleModal, allStoreList, allPartner, editB
     const addRenttData = async (data) => {
         setLoading(true)
         try {
-            const response = await Post('/api/ChemicalGdown/AddRentData', { data: data });
+            const response = await Post('/api/v1/ChemicalGdown/AddRentData', { data: data });
             if (response.data.success === true) {
                 setLoading(false)
                 handleCloseTheModal()

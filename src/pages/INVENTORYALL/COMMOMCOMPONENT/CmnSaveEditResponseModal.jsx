@@ -55,7 +55,7 @@ const CmnSaveEditResponseModal = ({ show, responseModalClose, success, nvurl, er
             userId: userID,
             remarks: ""
         }
-        Post('/api/InvTransaction/PostInvTransaction', { data: data })
+        Post('/api/v1/InvTransaction/PostInvTransaction', { data: data })
             .then(res => {
                 console.log(res)
                 if (res.data.success === false) {

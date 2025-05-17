@@ -381,7 +381,7 @@ const MaterialReturn = () => {
         }
 
 
-        Post('/api/InvTransaction/InsertInvTransaction', data)
+        Post('/api/v1/InvTransaction/InsertInvTransaction', data)
             .then(res => {
                 // if (res.data.success = true) {
                 //     // console.log(res.data.data)

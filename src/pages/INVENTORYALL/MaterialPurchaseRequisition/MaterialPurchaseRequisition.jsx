@@ -101,7 +101,7 @@ const MaterialPurchaseRequisition = () => {
     const { data: allStoreList = [], fetchError } = useFetchData('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
     const { data: productData = [] } = useFetchData('/api/Product/GetAllItemSearch')
 
-    const { data: allPartnerList = [] } = useFetchData('/api/PartnerManagement/GetAllPartner', { data: 0 })
+    const { data: allPartnerList = [] } = useFetchData('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
     const { data: allItemList = [] } = useFetchData('/api/Product/GetAllItemList')
 
 
@@ -142,7 +142,7 @@ const MaterialPurchaseRequisition = () => {
 
     //get the partner List
     // const fetchPartner = () => {
-    //     Post('/api/PartnerManagement/GetAllPartner', { data: 0 })
+    //     Post('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
     //         .then((res) => {
     //             // console.log("res", res)
     //             setAllPartnerList(res.data.data)

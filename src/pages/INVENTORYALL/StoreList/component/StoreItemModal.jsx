@@ -39,7 +39,7 @@ const StoreItemModal = ({ show, handleModal, isEdit, updateData }) => {
     const submitStoredata = async () => {
         const data = { data: storeData }
         try {
-            const response = await Post('/api/Product/InsertStore', data)
+            const response = await Post('/api/v1/Product/InsertStore', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)
@@ -65,7 +65,7 @@ const StoreItemModal = ({ show, handleModal, isEdit, updateData }) => {
     const updateStoredata = async () => {
         const data = { data: storeData }
         try {
-            const response = await Post('/api/Product/UpdateStore', data)
+            const response = await Post('/api/v1/Product/UpdateStore', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)

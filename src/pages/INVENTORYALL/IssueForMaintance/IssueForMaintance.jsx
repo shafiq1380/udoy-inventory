@@ -117,14 +117,14 @@ const IssueForMaintaince = () => {
 
     //get the partner List
     const fetchPartner = () => {
-        Post('/api/PartnerManagement/GetAllPartner', { data: 0 })
+        Post('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
             .then((res) => {
                 // console.log("res", res)
                 setAllPartnerList(res.data.data)
             })
     };
 
-    // const partner = useFetchData('/api/PartnerManagement/GetAllPartner', { data: 0 })
+    // const partner = useFetchData('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
     // console.log(partner.datas)
 
 

@@ -10,6 +10,7 @@ import { authorization } from '../../../components/Common/Authorization';
 
 const GroupSetup = () => {
     const { itemGroupList } = useSelector(state => state.AllItemList)
+    console.log('itemGroupList', itemGroupList);
     const dispatch = useDispatch()
 
     const columns = useMemo(
@@ -88,7 +89,7 @@ const GroupSetup = () => {
                                 <CardBody>
                                     <TableContainer
                                         columns={columns}
-                                        data={itemGroupList}
+                                        data={itemGroupList ? itemGroupList : []}
                                         isGlobalFilter={true}
                                         isAddUserList={true}
                                         // onClickBtn={handleModal}

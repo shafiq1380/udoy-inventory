@@ -83,7 +83,7 @@ const TransactionListingReport = () => {
 
     const getProductCategory = async () => {
         try {
-            await Post('/api/Product/GetAllItemCategory')
+            await Post('/api/v1/Product/GetAllItemCategory')
                 .then(res => {
                     setProductCategory(res.data.data)
                 })
@@ -93,7 +93,7 @@ const TransactionListingReport = () => {
     }
 
     const fetchAllStoreList = () => {
-        Post('/api/Product/GetAllStore')
+        Post('/api/v1/Product/GetAllStore')
             .then((res) => {
                 setAllStoreList(res.data.data)
             })

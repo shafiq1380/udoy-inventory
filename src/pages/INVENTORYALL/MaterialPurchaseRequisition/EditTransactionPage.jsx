@@ -83,7 +83,7 @@ const EditTransactionPage = () => {
     const { data: allStoreList = [], fetchError } = useFetchData('/api/InvTransaction/GetStorePermissionByUser', { data: userID })
     const { data: productData = [] } = useFetchData('/api/Product/GetAllItemSearch')
 
-    const { data: allPartnerList = [] } = useFetchData('/api/PartnerManagement/GetAllPartner', { data: 0 })
+    const { data: allPartnerList = [] } = useFetchData('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
     const { data: allItemList = [] } = useFetchData('/api/Product/GetAllItemList')
 
     // console.log(allStoreList)

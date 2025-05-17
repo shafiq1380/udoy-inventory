@@ -32,7 +32,7 @@ const GetAllPartner = () => {
 
     const getAllPartnerType = () => {
         try {
-            Post('/api/PartnerManagement/GetAllPartnerType')
+            Post('/api/v1/PartnerManagement/GetAllPartnerType')
                 .then(res => {
                     res.data.data
                     setPartnerTypes(res.data.data);
@@ -71,7 +71,7 @@ const GetAllPartner = () => {
         const data = { data: inputData.id || 0 };
         // console.log("data", data);
         try {
-            Post('/api/PartnerManagement/GetAllPartner', data)
+            Post('/api/v1/PartnerManagement/GetAllPartner', data)
                 .then(res => {
                     // console.log("res", res);
                     setAllPartner(res.data.data);

@@ -150,7 +150,7 @@ const Subgroup = () => {
                                     <TableContainer
                                         columns={columns}
                                         // data={[]}
-                                        data={itemSubGroupList}
+                                        data={itemSubGroupList ? itemSubGroupList : []}
                                         isGlobalFilter={true}
                                         isAddUserList={true}
                                         onClickBtn={handleModal}

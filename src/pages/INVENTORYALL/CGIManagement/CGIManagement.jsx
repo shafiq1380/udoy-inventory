@@ -143,8 +143,8 @@ const CGIManagement = () => {
 
         try {
             const [storeResponse, partnerResponse] = await Promise.all([
-                Post('/api/Product/GetAllStore'),
-                Post('/api/PartnerManagement/GetAllPartner', data)
+                Post('/api/v1/Product/GetAllStore'),
+                Post('/api/v1/PartnerManagement/GetAllPartner', data)
             ]);
 
             setAllStoreList(storeResponse.data.data);

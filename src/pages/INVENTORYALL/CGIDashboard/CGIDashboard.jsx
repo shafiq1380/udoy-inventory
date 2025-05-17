@@ -32,7 +32,7 @@ const CGIDashboard = () => {
         try {
             const [rentDataResponse, storeDataResponse] = await Promise.all([
                 Post('/api/ChemicalGdown/GetDashboardRentData'),
-                Post('/api/Product/GetAllStore')
+                Post('/api/v1/Product/GetAllStore')
             ]);
 
             // console.log(storeDataResponse)

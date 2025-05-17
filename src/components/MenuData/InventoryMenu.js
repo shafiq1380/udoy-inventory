@@ -29,16 +29,16 @@ const inventoryMenu = [
         id: 102,
         menuHeader: 'Setup',
         subMenu: [
-            {
-                id: 115,
-                title: 'Chemical Godown Dashboard',
-                path: '/cgi-dashboard'
-            },
-            {
-                id: 116,
-                title: 'Godown Management',
-                path: '/cgi-management'
-            },
+            // {
+            //     id: 115,
+            //     title: 'Chemical Godown Dashboard',
+            //     path: '/cgi-dashboard'
+            // },
+            // {
+            //     id: 116,
+            //     title: 'Godown Management',
+            //     path: '/cgi-management'
+            // },
             {
                 id: 63,
                 title: 'Group Setup',

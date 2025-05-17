@@ -81,7 +81,7 @@ const CreateNewPartner = ({ newPartnerModal, setNewPartnerModal, partnerTypes })
         // console.log("Data ----------->>>", data);
 
         try {
-            Post('/api/PartnerManagement/InsertPartner', data)
+            Post('/api/v1/PartnerManagement/InsertPartner', data)
                 .then(res => {
                     // console.log("res", res);
                     if (res.status === 200) {

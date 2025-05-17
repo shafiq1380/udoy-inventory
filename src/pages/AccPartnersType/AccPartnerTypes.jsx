@@ -98,7 +98,7 @@ const AccpartnerTypes = () => {
             data: 0
         }
         try {
-            await Post('/api/PartnerManagement/GetAllPartnerType', data)
+            await Post('/api/v1/PartnerManagement/GetAllPartnerType', data)
                 .then(res => setAccpartnerTypes(res.data.data))
         } catch (error) {
             console.log(error)

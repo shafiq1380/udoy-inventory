@@ -18,7 +18,7 @@ const UomModal = ({ show, handleModal, isEdit, updateData }) => {
     const updateUomdata = async () => {
         const data = { data: uomData }
         try {
-            const response = await Post('/api/Product/UpdateUOM', data)
+            const response = await Post('/api/v1/Product/UpdateUOM', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)
@@ -39,7 +39,7 @@ const UomModal = ({ show, handleModal, isEdit, updateData }) => {
     const addUomdata = async () => {
         const data = { data: uomData }
         try {
-            const response = await Post('/api/Product/InsertUOM', data)
+            const response = await Post('/api/v1/Product/InsertUOM', data)
                 .then(res => {
                     if (res.data.success === false) {
                         setError(res.data.errorMessage)

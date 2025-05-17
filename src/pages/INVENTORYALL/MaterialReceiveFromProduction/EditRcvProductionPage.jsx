@@ -137,7 +137,7 @@ const EditRcvProductionPage = () => {
 
 
     const fetchPartner = () => {
-        Post('/api/PartnerManagement/GetAllPartner', { data: 0 })
+        Post('/api/v1/PartnerManagement/GetAllPartner', { data: 0 })
             .then((res) => {
                 // console.log("res", res)
                 setAllPartnerList(res.data.data)

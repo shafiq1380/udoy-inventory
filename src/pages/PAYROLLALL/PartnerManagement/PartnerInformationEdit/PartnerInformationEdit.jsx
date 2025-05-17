@@ -71,7 +71,7 @@ const PartnerInformationEdit = () => {
 
     const getAllPartnerType = () => {
         try {
-            Post('/api/PartnerManagement/GetAllPartnerType')
+            Post('/api/v1/PartnerManagement/GetAllPartnerType')
                 .then(res => {
                     res.data.data
                     setPartnerTypes(res.data.data);

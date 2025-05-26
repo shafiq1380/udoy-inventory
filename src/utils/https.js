@@ -1,9 +1,9 @@
 
 import axios from "axios";
-export const fileUploadURL = "https://sacsbsec.gov.bd/FileUpload?"             // for live server
+export const fileUploadURL = "https://sacsbsec.gov.bd/FileUpload?"
 
-export const BASE_URL = "https://api.udoyadn.com";                           // Web Base URL for Government Live Site
-export const REPORT_URL = 'https://report.sacsbsec.gov.bd'                   // Report Base URL for Government Live Site
+export const BASE_URL = "https://api.udoyadn.com";
+export const REPORT_URL = 'https://report.udoyadn.com'
 
 export const REPORT_URL1 = "http://localhost:54992";
 

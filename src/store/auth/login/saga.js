@@ -18,7 +18,7 @@ function* loginUser({ payload: { user, history } }) {
     // localStorage.setItem('module', JSON.stringify(3))
     // sessionStorage.setItem('module', JSON.stringify(3));
 
-    const getToken = yield LoginPost(`/api/v1/InvTransaction/Login?userid=${user.userid.trim()}&password=${user.password}`);
+    const getToken = yield LoginPost(`/api/v1/InvTransaction/Login?userid=${user.userID.trim()}&password=${user.password}`);
 
     // console.log('response', getToken)
 
@@ -30,7 +30,7 @@ function* loginUser({ payload: { user, history } }) {
       localStorage.setItem('authUser', JSON.stringify(user.token))
       const authTimestamp = new Date().getTime(); // for get local pc time
       localStorage.setItem("authTimestamp", authTimestamp.toString()); // set local pc time
-      localStorage.setItem('userId', user.userid);
+      localStorage.setItem('userID', JSON.stringify(getToken.data.data.loginID));
 
       localStorage.setItem('userName', JSON.stringify(getToken.data.data.userName));
       localStorage.setItem('empCode', JSON.stringify(getToken.data.data.empCode));

@@ -194,7 +194,7 @@ const Login3 = (props) => {
             if (res.status === 200) {
                 localStorage.setItem('authUser', JSON.stringify(token));
                 const data = {
-                    userid: user.userID,
+                    userID: user.userID,
                     password: user.password,
                     token: token
                 }
